@@ -1,0 +1,126 @@
+﻿@model TaapApp.Models.Permissions
+
+@{
+    ViewData["Title"] = "Permission | Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<h2>Edit</h2>
+
+<h4>Permissions</h4>
+<hr />
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="PermissionId" />
+
+
+    <div class="row">
+        <label asp-for="RoleId" class="col-md-2 control-label">Role</label>
+        <span class="star-required">*</span>
+        <div class="col-md-3 form-group">
+            <select id="" asp-for="RoleId" name="RoleId" class="form-control" placeholder="Choose role" required>
+                <option disabled="" selected></option>
+                @foreach (var item in ViewBag.SelectOptionRoles)
+            {
+                <option value=@item.Value>@item.Text</option>
+        }
+            </select>
+            <span asp-validation-for="RoleId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="Form" class="col-md-2 control-label"></label>
+        <span class="star-required">*</span>
+        <div class="col-md-3 form-group">
+            @*<input asp-for="Form" class="form-control form-control-sm" required/>*@
+            <select id="" asp-for="Form" name="Form" class="form-control form-control-sm" placeholder="Choose form" required>
+                <option disabled="" selected></option>
+                @foreach (var item in ViewBag.SelectOptionPages)
+            {
+                <option value=@item.Value>@item.Text</option>
+        }
+            </select>
+            <span asp-validation-for="Form" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="Description" class="col-sm-2 control-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="col-md-3 form-group">
+            <textarea asp-for="Description" class="form-control form-control-sm"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+
+    <hr class="mt-0">
+
+    <div class="row">
+        <label asp-for="Viewer" class="col-md-1 control-label">View</label>
+        <span class="star-required">*</span>
+        <div class="col-md-2 form-group">
+            <select asp-for="Viewer" class="form-control" placeholder="Choose">
+                <option disabled="" selected></option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        </div>
+
+        <label asp-for="Creater" class="col-md-1 control-label">Create</label>
+        <span class="star-required">*</span>
+        <div class="col-md-2 form-group">
+            <select asp-for="Creater" class="form-control" placeholder="Choose">
+                <option disabled="" selected></option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        </div>
+
+        <label asp-for="Editer" class="col-md-1 control-label">Edit</label>
+        <span class="star-required">*</span>
+        <div class="col-md-2 form-group">
+            <select asp-for="Editer" class="form-control" placeholder="Choose">
+                <option disabled="" selected></option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="Deleter" class="col-md-1 control-label">Delete</label>
+        <span class="star-required">*</span>
+        <div class="col-md-2 form-group">
+            <select asp-for="Deleter" class="form-control" placeholder="Choose">
+                <option disabled="" selected></option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        </div>
+
+        <label asp-for="Printer" class="col-md-1 control-label"></label>
+        <span class="star-required">*</span>
+        <div class="col-md-2 form-group">
+            <select asp-for="Printer" class="form-control" placeholder="Choose">
+                <option disabled="" selected></option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        </div>
+    </div>
+    <hr class="mt-0">
+
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <button type="submit" value="Create" class="btn btn-primary" data-permission="editer">
+                <i class="fa fa-save"></i> Save
+            </button> &nbsp; | &nbsp;
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</form>
+
+

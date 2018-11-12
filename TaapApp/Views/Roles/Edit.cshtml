@@ -1,0 +1,69 @@
+﻿@model TaapApp.Models.Roles
+
+@{
+    ViewData["Title"] = "Roles | Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<h2>Edit</h2>
+
+<h4>Roles</h4>
+<hr />
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="RoleId" />
+    <input type="hidden" asp-for="UpdateBy" />
+
+    <div class="row">
+        <label asp-for="RoleName" class="col-md-2 control-label"></label>
+        <span class="star-required">*</span>
+        <div class="col-md-3 form-group">
+            <input asp-for="RoleName" class="form-control" />
+            <span asp-validation-for="RoleName" class="text-danger"></span>
+        </div>
+    </div>
+    @*<div class="form-group">
+            <label asp-for="CreateBy" class="control-label"></label>
+            <input asp-for="CreateBy" class="form-control" />
+            <span asp-validation-for="CreateBy" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CreateDate" class="control-label"></label>
+            <input asp-for="CreateDate" class="form-control" />
+            <span asp-validation-for="CreateDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UpdateBy" class="control-label"></label>
+
+            <span asp-validation-for="UpdateBy" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UpdateDate" class="control-label"></label>
+            <input asp-for="UpdateDate" class="form-control" />
+            <span asp-validation-for="UpdateDate" class="text-danger"></span>
+        </div>*@
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <button type="submit" class="btn btn-info" data-permission="editer">
+                <i class="fa fa-save"></i> Save
+            </button>
+            &nbsp; | &nbsp;
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+
+</form>
+
+<script>
+    window.onload = function () {
+        var acct = localStorage.getItem('access_token')
+        var decode = parseJwt(acct);
+        $('input[name=UpdateBy]').val(decode.UserId);
+    };
+</script>
+<div>
+
+</div>
+

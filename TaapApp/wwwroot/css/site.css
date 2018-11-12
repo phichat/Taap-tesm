@@ -1,0 +1,16 @@
+﻿.error {
+    color: red;
+    border-color: red;
+}
+
+label.error {
+    display: block;
+    width: 100%;
+}
+
+.star-required {
+    color: red;
+}
+.radio {
+    padding-left: unset !important;
+}

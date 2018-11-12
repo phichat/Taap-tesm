@@ -1,0 +1,121 @@
+﻿@model IEnumerable<TaapApp.Models.PartReceive>
+@{
+    ViewData["Title"] = "Parts Movement | Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<style>
+    th.md {
+        min-width: 350px;
+    }
+
+    th.sm {
+        min-width: 150px;
+    }
+
+    th.xs {
+        min-width: 75px;
+    }
+</style>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/views/reports/report-parts-movement.js")"></script>
+}
+<h2>Report Parts Movement</h2>
+<hr />
+
+<form id="search">
+    <div class="row">
+        <label class="col-md-2 col-form-label" for="partNo">Model :</label>
+        <div class="col-md-3 form-group">
+            <select id="model" name="model" class="form-control form-control-sm" placeholder="Choose Model" required>
+                <option disabled="" selected></option>
+                @foreach (var item in ViewBag.SelectOptionModel)
+                {
+                    <option value=@item.Value>@item.Text</option>
+                }
+            </select>
+            <span for="model" class="text-danger"></span>
+        </div>
+    </div>    
+    <div class="row">
+        <label class="col-md-2 col-form-label" for="partNo">Parts number :</label>
+        <div class="col-md-3 form-group">
+            <select id="partNo" name="partNo" class="form-control form-control-sm" placeholder="Choose part number" required>
+                <option disabled="" selected></option>
+                @foreach (var item in ViewBag.SelectOptionPartsNumber)
+                {
+                    <option value=@item.Value>@item.Text</option>
+                }
+            </select>
+            <span for="partNo" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-md-2 col-form-label" for="dateFrom">Rec. Date From :</label>
+        <div class="col-md-3 form-group">
+            <input id="dateFrom" type="date" name="dateFrom" class="form-control form-control-sm" required />
+            <span for="dateFrom" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-md-2 col-sm-3 col-form-label" for="dateTo">Rec. Date To :</label>
+        <div class="col-md-3 form-group">
+            <input id="dateTo" type="date" name="dateTo" class="form-control form-control-sm" required />
+            <span for="dateTo" class="text-danger"></span>
+        </div>
+        <div class="col-md-2 form-group">
+            <button type="button" class="btn btn-info btn-sm form-control"
+                    onclick="search('#search')"
+                    data-permission="viewer">
+                <i class="icon-magnifier"></i>
+                Search
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">Export :</div>
+        <div class="col-md-2 form-group">
+            <button type="button" class="btn btn-danger btn-sm form-control"
+                    onclick="exportPDF('#search')"
+                    data-permission="printer">
+                <i class="fa fa-file-pdf-o"></i>
+                Pdf
+            </button>
+        </div>
+        <div class="col-md-2 form-group">
+            <button type="submit" class="btn btn-success btn-sm form-control"
+                    onclick="exportExcel('#search')"
+                    data-permission="printer">
+                <i class="fa fa-file-excel-o"></i>
+                Excel
+            </button>
+        </div>
+    </div>
+</form>
+
+<div>
+    <table class="stripe hover display nowrap" style="width: 100%">
+        <thead>
+            <tr>
+                <th class="">No</th>
+                <th class="sm">Rec. Date</th>
+                <th class="sm">TF. No</th>
+                <th class="sm">Set No</th>
+                <th class="sm">Rec. No</th>
+                <th class="sm">Model</th>
+                <th class="sm">PartNo</th>
+                <th class="md">PartDescription</th>
+                <th class="">R.Qty</th>
+                <th class="">Q.P.V</th>
+                <th class="sm">CommissionNo</th>
+                <th class="sm">DateFG</th>
+                <th class="sm">DateBuyOff</th>
+                <th class="sm">VDONo</th>
+                <th class="">Amount</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>

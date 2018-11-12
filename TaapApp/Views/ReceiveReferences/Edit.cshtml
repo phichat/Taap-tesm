@@ -1,0 +1,184 @@
+﻿@model TaapApp.Models.ReceiveReference
+
+@{
+    ViewData["Title"] = "Receive Reference | Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<h2>Edit</h2>
+
+<h4>Receive Reference</h4>
+@{
+    if (ViewBag.InProcess == false)
+    {
+        <h5 class="text-danger">Commission no. @Html.DisplayFor(model => model.CommissionNo) is in process</h5>
+    }
+}
+
+<hr />
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Vdoid" />
+    <input type="hidden" asp-for="ComItem" />
+    <input type="hidden" asp-for="Status" />
+    <input type="hidden" asp-for="ReferenceNo" />
+
+    <div class="row">
+        <label asp-for="ReceiveNo" class="col-md-2 col-form-label">PM & Model</label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="ReceiveNo" class="form-control" readonly />
+            <span asp-validation-for="ReceiveNo" class="text-danger"></span>
+        </div>
+        <div class="col-md-1"></div>
+        <label asp-for="CommissionNo" class="col-md-2 col-form-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="CommissionNo" class="form-control" readonly />
+            <span asp-validation-for="CommissionNo" class="text-danger"></span>
+        </div>
+
+        <label asp-for="SetNo" class="col-md-2 control-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="SetNo" class="form-control" readonly />
+            <span asp-validation-for="SetNo" class="text-danger"></span>
+        </div>
+
+
+        @*<div class="col-md-1"></div>
+        <label asp-for="DateToProduction" class="col-md-2 control-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="DateToProduction" class="form-control" readonly />
+            <span asp-validation-for="DateToProduction" class="text-danger"></span>
+        </div>*@
+    </div>
+
+    @*<div class="row">
+        <label asp-for="TransferNoCkd" class="col-md-2 control-label">TF(CKD) No.</label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="TransferNoCkd" class="form-control" />
+            <span asp-validation-for="TransferNoCkd" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="TransferNoLoc" class="col-md-2 control-label">TF(LOC) No.</label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="TransferNoLoc" class="form-control" />
+            <span asp-validation-for="TransferNoLoc" class="text-danger"></span>
+        </div>
+
+    </div>*@
+
+    <div class="row">
+        <label asp-for="Vdono" class="col-md-2 control-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="Vdono" class="form-control" />
+            <span asp-validation-for="Vdono" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="Date" class="col-md-2 control-label">Buy off date</label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="Date" class="form-control" type="date" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="ModelType" class="col-md-2 control-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="ModelType" class="form-control" />
+            <span asp-validation-for="ModelType" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="LotNo" class="col-md-2 control-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="LotNo" class="form-control" />
+            <span asp-validation-for="LotNo" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="ProductionNo" class="col-md-2 control-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="ProductionNo" class="form-control" />
+            <span asp-validation-for="ProductionNo" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="PaintTrim" class="col-md-2 control-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="PaintTrim" class="form-control" />
+            <span asp-validation-for="PaintTrim" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="ChassisNo" class="col-md-2 control-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="ChassisNo" class="form-control" />
+            <span asp-validation-for="ChassisNo" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="EngineNo" class="col-md-2 control-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="EngineNo" class="form-control" />
+            <span asp-validation-for="EngineNo" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="Remark" class="col-md-2 control-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="form-group col-md-3">
+            <textarea input asp-for="Remark" class="form-control"></textarea>
+            <span asp-validation-for="Remark" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="form-group col-md-3">
+            @{
+                if (ViewBag.InProcess == false)
+                {
+                    <button type="submit" class="btn btn-primary" data-permission="editer" disabled>
+                        <i class="fa fa-save"></i> Save
+                    </button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-primary" data-permission="editer">
+                        <i class="fa fa-save"></i> Save
+                    </button>
+
+                }
+            }
+            |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,325 @@
+﻿
+@model IEnumerable<TaapApp.Models.PartReceive>
+@{
+    ViewData["Title"] = "Parts Receive";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<style>
+    .icons-list li .value {
+        right: 0px !important;
+    }
+
+    th.md {
+        min-width: 350px;
+    }
+
+    th.sm {
+        min-width: 150px;
+    }
+
+    th.xs {
+        min-width: 75px;
+    }
+</style>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/views/part-receives/receive-file.js")"></script>
+}
+
+<div class="card-group">
+    <div class="card card-accent-primary col-lg-7 col-md-7 col-sm-12 pr-0 pl-0">
+        <div class="card-header">
+            <div class="callout callout-info mt-0 mb-0">
+                <strong class="h5">
+                    <i class="icon-doc"></i>
+                </strong>
+                <div class="title">Add new data</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form action="" id="frm-upload">
+                <div class="row">
+                    <label class="col-md-3 col-sm-12 col-form-label" for="">Input file :</label>
+                    <div class="col-md-6 col-sm-12 form-group">
+                        <input type="file" name="file" placeholder="" required>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <button type="button" class="btn btn-primary btn-sm form-control"
+                                onclick="onUploadFile('#frm-upload');"
+                                data-permission="creater">
+                            <i class="icon-cloud-upload"></i>
+                            Upload
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <hr class="mt-0">
+            <form action="" id="frm-summary">
+                <div class="row">
+                    <div class="col-md-7 col-12">
+                        <ul class="icons-list">
+                            <li>
+                                <i class="icon-key icons font-xl bg-warning"></i>
+                                <div class="desc">
+                                    <div class="title">Receive No</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="receiveNo"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa fa-cube icons font-xl bg-primary"></i>
+                                <div class="desc">
+                                    <div class="title">Packing Mouth</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="packingMonth"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa fa-car icons font-xl bg-primary"></i>
+                                <div class="desc">
+                                    <div class="title">Model</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="model"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="icon-tag icons font-xl bg-info"></i>
+                                <div class="desc">
+                                    <div class="title">Consignment</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="consignment"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa fa-barcode icons font-xl bg-info"></i>
+                                <div class="desc">
+                                    <div class="title">Commission No.</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="commissionNo"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="icon-grid icons font-xl bg-success"></i>
+                                <div class="desc">
+                                    <div class="title">Shop</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">Name</div>
+                                    <strong class="summary" name="shop"></strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 col-12">
+                        <ul class="icons-list">
+                            <li>
+                                <i class="icon-layers icons font-xl bg-info"></i>
+                                <div class="desc">
+                                    <div class="title">Total count</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">Item</div>
+                                    <strong class="summary" name="totalCount"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa fa-cubes icons font-xl bg-primary"></i>
+                                <div class="desc">
+                                    <div class="title">Total qty</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">Qty</div>
+                                    <strong class="summary" name="totalQty"></strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="card card-accent-primary col-lg-5 col-md-5 col-sm-12 pr-0 pl-0">
+        <div class="card-header">
+            <div class="callout callout-info mt-0 mb-0">
+                <strong class="h5">
+                    <i class="icon-magnifier"></i>
+                </strong>
+                <div class="title">Search data</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form id="search" method="get" asp-action="Search">
+                <div class="row">
+                    <label class="col-lg-4 col-md-5 col-sm-12 col-form-label" for="">Receive no :</label>
+                    <div class="col-lg-6 col-md-7 col-sm-12 form-group">
+                        <select id="" name="receiveNo" class="form-control form-control-sm" placeholder="Choose receiveNo" required>
+                            <option disabled="" selected></option>
+                            @foreach (var item in ViewBag.SelectOptionReceiveNo)
+                            {
+                                <option value=@item.Value>@item.Text</option>
+                            }
+                        </select>
+                        <span for="receiveNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-lg-4 col-md-5 col-sm-12 col-form-label" for="">Rec. Date From :</label>
+                    <div class="col-lg-6 col-md-7 controls form-group">
+                        <input class="form-control form-control-sm" name="dateFrom" type="date">
+                        <span for="dateFrom" class="text-danger"></span>
+                    </div>
+                    <label class="col-lg-4 col-md-5 col-sm-12 col-form-label" for="">Rec. Date To :</label>
+                    <div class="col-lg-6 col-md-7 controls form-group">
+                        <input class="form-control form-control-sm" name="dateTo" type="date">
+                        <span for="dateTo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12"></div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                        <button id="btn-search" type="button" class="btn btn-info btn-sm form-control"
+                                onclick="search('#search')"
+                                data-permission="viewer">
+                            <i class="icon-magnifier"></i>
+                            Search
+                        </button>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                        <button class="btn btn-danger btn-sm form-control" type="reset">
+                            <i class="icon-refresh"></i>
+                            Resert
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-success" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Success</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="icons-list">
+                    <li>
+                        <i class="icon-key icons font-xl bg-warning"></i>
+                        <div class="desc">
+                            <div class="title">Receive no</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">No.</div>
+                            <strong class="summary" name="receiveNo"></strong>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon-layers icons font-xl bg-info"></i>
+                        <div class="desc">
+                            <div class="title">Total count</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Item</div>
+                            <strong class="summary" name="totalCount"></strong>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa fa-cubes icons font-xl bg-primary"></i>
+                        <div class="desc">
+                            <div class="title">Total qty</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Qty</div>
+                            <strong class="summary" name="totalQty"></strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal fade" id="dangerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-danger" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Fail</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card card-accent-primary col-sm-12 pr-0 pl-0">
+    <div class="card-body">
+        <table id="part_receive" class="stripe hover display nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th class="md">
+                        CustomEntryNo
+                    </th>
+                    <th class="md">
+                        InvoiceNo
+                    </th>
+                    <th class="sm">
+                        DateToProduction
+                    </th>
+                    <th class="sm">
+                        PartNo
+                    </th>
+                    <th class="md">
+                        PartDescription
+                    </th>
+                    <th class="xs">
+                        Qty
+                    </th>
+                    <th class="xs">
+                        Amount
+                    </th>
+                    <th class="xs">
+                        Qpv
+                    </th>
+                    <th class="xs">
+                        Um
+                    </th>
+                    <th class="xs">
+                        PartType
+                    </th>
+                    <th class="sm"></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+

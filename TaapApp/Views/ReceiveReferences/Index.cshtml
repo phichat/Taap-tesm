@@ -1,0 +1,299 @@
+﻿@*@model IEnumerable<TaapApp.Models.ReceiveReference>*@
+
+@{
+    ViewData["Title"] = "Receive Reference";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<style>
+    .icons-list li .value {
+        right: 0px !important;
+    }
+
+    th.md {
+        min-width: 350px;
+    }
+
+    th.sm {
+        min-width: 150px;
+    }
+
+    th.xs {
+        min-width: 75px;
+    }
+</style>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/views/part-receives/receive-reference-file.js")"></script>
+}
+<div class="card-group">
+    <div class="card card-accent-primary">
+        <div class="card-header">
+            <div class="callout callout-info mt-0 mb-0">
+                <strong class="h5">
+                    <i class="icon-doc"></i>
+                </strong>
+                <div class="title">Supply parts</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form action="" method="post" id="frm-upload" enctype="multipart/form-data">
+                <div class="row">
+                    <label class="col-md-3 col-sm-12 col-form-label" for="">BuyOff File :</label>
+                    <div class="col-md-6 col-sm-12 form-group">
+                        <input type="file" name="files" placeholder="" required>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <button type="button" class="btn btn-primary btn-sm form-control"
+                                onclick="onUploadFile('#frm-upload');"
+                                data-permission="creater">
+                            <i class="icon-cloud-upload"></i>
+                            Upload
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <hr class="mt-0">
+
+            @*<form action="" method="post" id="frm-upload-reference" enctype="multipart/form-data">
+                    <div class="row">
+                        <label class="col-md-3 col-sm-12 col-form-label" for="">Reference File :</label>
+                        <div class="col-md-6 col-sm-12 form-group">
+                            <input type="file" name="files" placeholder="" required>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <button type="button" class="btn btn-primary btn-sm form-control"
+                                    onclick="onUploadReferenceFile('#frm-upload-reference');"
+                                    data-permission="creater">
+                                <i class="icon-cloud-upload"></i>
+                                Upload
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <hr class="mt-0">*@
+
+            <form action="" id="frm-summary">
+                <ul class="icons-list">
+                    <li>
+                        <i class="icon-clock icons font-2xl bg-info"></i>
+                        <div class="desc">
+                            <div class="title">In Process</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Item</div>
+                            <strong class="summary" name="inProcess"></strong>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon-check icons font-2xl bg-success"></i>
+                        <div class="desc">
+                            <div class="title">Is Update</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Item</div>
+                            <strong class="summary" name="isMatch"></strong>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon-question icons font-2xl bg-warning"></i>
+                        <div class="desc">
+                            <div class="title">Not Update</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Item</div>
+                            <strong class="summary" name="notMatch"></strong>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon-layers icons font-2xl bg-primary"></i>
+                        <div class="desc">
+                            <div class="title">Total Count</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Item</div>
+                            <strong class="summary" name="totalCount"></strong>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <div class="card card-accent-primary">
+        <div class="card-header">
+            <div class="callout callout-info mt-0 mb-0">
+                <strong class="h5">
+                    <i class="icon-magnifier"></i>
+                </strong>
+                <div class="title">Search data</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form id="search">
+                <div class="row">
+                    <label class="col-lg-4 col-md-5 col-sm-12 col-form-label" for="">PM & Model :</label>
+                    <div class="col-lg-6 col-md-7 col-sm-12 form-group">
+                        <select id="" name="receiveNo" class="form-control form-control-sm" placeholder="Choose receiveNo">
+                            <option disabled="" selected></option>
+                            @foreach (var item in ViewBag.SelectOptionReceiveNo)
+                            {
+                                <option value=@item.Value>@item.Text</option>
+                            }
+                        </select>
+                        <span for="receiveNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-lg-4 col-md-5 col-sm-12 col-form-label" for="">Commission No :</label>
+                    <div class="col-lg-6 col-md-7 col-sm-12 form-group">
+                        <input class="form-control form-control-sm" type="text" name="commissionNo" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-4 col-form-label" for="">VDO no :</label>
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control form-control-sm" type="text" name="vdoNo" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12"></div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                        <button id="btn-search" type="button" class="btn btn-info btn-sm form-control"
+                                onclick="search('#search')"
+                                data-permission="viewer">
+                            <i class="icon-magnifier"></i>
+                            Search
+                        </button>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                        <button class="btn btn-danger btn-sm form-control" type="reset">
+                            <i class="icon-refresh"></i>
+                            Resert
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-success" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Success</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="icons-list">
+                    <li>
+                        <i class="icon-clock icons font-2xl bg-info"></i>
+                        <div class="desc">
+                            <div class="title">In Process</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Item</div>
+                            <strong class="summary" name="inProcess"></strong>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon-check icons font-2xl bg-success"></i>
+                        <div class="desc">
+                            <div class="title">Is Update</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Item</div>
+                            <strong class="summary" name="isMatch"></strong>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon-question icons font-2xl bg-warning"></i>
+                        <div class="desc">
+                            <div class="title">Not Update</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Item</div>
+                            <strong class="summary" name="notMatch"></strong>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon-layers icons font-2xl bg-info"></i>
+                        <div class="desc">
+                            <div class="title">Total Count</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Item</div>
+                            <strong class="summary" name="totalCount"></strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal fade" id="dangerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-danger" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Fail</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card card-accent-primary col-sm-12 pr-0 pl-0">
+    <div class="card-body">
+        <table id="buyoff" class="stripe hover display nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        No
+                    </th>
+                    <th class="sm text-center">
+                        Status
+                    </th>
+                    <th class="sm">
+                        PM & Model
+                    </th>
+                    <th class="sm">
+                        CommissionNo
+                    </th>
+                    @*<th>
+                        TF(CKD) No.
+                    </th>
+                    <th>
+                        TF(LOC) No.
+                    </th>*@
+                    <th>
+                        Set No
+                    </th>
+                    <th class="sm">
+                        Vdo No
+                    </th>
+                    <th class="sm">
+                        Buy Off date
+                    </th>
+                    <th class="sm"></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,180 @@
+﻿@model TaapApp.Models.PartReceive
+
+@{
+    ViewData["Title"] = "Parts Receive | Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<h2>Edit</h2>
+
+<h4>Parts Receive</h4>
+<hr />
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ReceiveId" />
+
+    <div class="row">
+        <label asp-for="ReceiveNo" class="col-md-2 col-form-label"></label>
+        <span style="color:transparent;">*</span>
+
+        <div class="form-group col-md-3">
+            <input asp-for="ReceiveNo" class="form-control" readonly />
+            <span asp-validation-for="ReceiveNo" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="PackingMonth" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="PackingMonth" class="form-control" />
+            <span asp-validation-for="PackingMonth" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="Model" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="Model" class="form-control" />
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="Consignment" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="Consignment" class="form-control" />
+            <span asp-validation-for="Consignment" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <label asp-for="CommissionFrom" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="CommissionFrom" class="form-control" />
+            <span asp-validation-for="CommissionFrom" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="CommissionTo" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="CommissionTo" class="form-control" />
+            <span asp-validation-for="CommissionTo" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="Shop" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="Shop" class="form-control" />
+            <span asp-validation-for="Shop" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="CustomEntryNo" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="CustomEntryNo" class="form-control" />
+            <span asp-validation-for="CustomEntryNo" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="InvoiceNo" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="InvoiceNo" class="form-control" />
+            <span asp-validation-for="InvoiceNo" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="DateToProduction" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="DateToProduction" class="form-control" type="date" />
+            <span asp-validation-for="DateToProduction" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="PartNo" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="PartNo" class="form-control" />
+            <span asp-validation-for="PartNo" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="PartDescription" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="PartDescription" class="form-control" />
+            <span asp-validation-for="PartDescription" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="Qty" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="Qty" class="form-control" />
+            <span asp-validation-for="Qty" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="Amount" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="Amount" class="form-control" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="Qpv" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="Qpv" class="form-control" />
+            <span asp-validation-for="Qpv" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-1"></div>
+        <label asp-for="Um" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="Um" class="form-control" />
+            <span asp-validation-for="Um" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="PartType" class="col-md-2 col-form-label"></label>
+        <span class="star-required">*</span>
+        <div class="form-group col-md-3">
+            <input asp-for="PartType" class="form-control" />
+            <span asp-validation-for="PartType" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="form-group col-md-3">
+            <button type="submit" class="btn btn-primary" data-permission="editer">
+                <i class="fa fa-save"></i> Save
+            </button> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

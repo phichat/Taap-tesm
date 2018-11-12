@@ -1,0 +1,27 @@
+﻿a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+.social-box {
+    min-height: unset;
+    margin-bottom: unset;
+    text-align: center;
+    background: #fff;
+    border: none;
+}
+
+.card-group > .card {
+    margin-bottom: unset !important;
+    border: none;
+}
+
+    .card-group > .card:first-child {
+        text-align: center;
+    }
+
+    .card-group > .card:last-child {
+        border-left: 1px solid #c2cfd6;
+    }

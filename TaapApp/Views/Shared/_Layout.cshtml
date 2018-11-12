@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TaapApplication</title>
+
+    <style>
+        .warpper {
+            display: none;
+            z-index: 9000;
+            background-color: rgba(238, 238, 238, 0.7);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sk-spinner-cube-grid.sk-spinner {
+            width: 46px;
+            height: 46px;
+            margin: 20% auto;
+        }
+
+        .sk-spinner-cube-grid .sk-cube {
+            width: 33%;
+            height: 33%;
+            background-color: #1ab394;
+            float: left;
+            -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+            animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+        }
+
+        .sk-spinner-cube-grid .sk-cube:nth-child(1) {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+
+        .sk-spinner-cube-grid .sk-cube:nth-child(2) {
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+
+        .sk-spinner-cube-grid .sk-cube:nth-child(3) {
+            -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s;
+        }
+
+        .sk-spinner-cube-grid .sk-cube:nth-child(4) {
+            -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s;
+        }
+
+        .sk-spinner-cube-grid .sk-cube:nth-child(5) {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+
+        .sk-spinner-cube-grid .sk-cube:nth-child(6) {
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+
+        .sk-spinner-cube-grid .sk-cube:nth-child(7) {
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+        }
+
+        .sk-spinner-cube-grid .sk-cube:nth-child(8) {
+            -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s;
+        }
+
+        .sk-spinner-cube-grid .sk-cube:nth-child(9) {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+
+        @@-webkit-keyframes sk-cubeGridScaleDelay {
+            0%, 70%, 100% {
+                -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1);
+            }
+
+            35% {
+                -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1);
+            }
+        }
+
+        @@keyframes sk-cubeGridScaleDelay {
+            0%, 70%, 100% {
+                -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1);
+            }
+
+            35% {
+                -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1);
+            }
+        }
+
+    </style>
+
+    <environment include="Development">
+        <!-- Icons -->
+        <link href="~/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/lib/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/lib/selectize.js-master/dist/css/selectize.css" />
+        <link rel="stylesheet" href="~/lib/selectize.js-master/dist/css/selectize.bootstrap3.css" />
+        <link href="~/css/style.css" rel="stylesheet">
+        <link href="~/css/selectize.css" rel="stylesheet">
+        <link href="~/css/site.css" rel="stylesheet" />
+
+        @*<base id="baseApp" href="http://localhost:52151" />*@
+         <base id="baseApp" href="http://localhost:5000" />         
+        <base id="baseReport" href="http://localhost:2511" />
+    </environment>
+    <environment exclude="Development">
+        <!-- Icons -->
+        <link href="~/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/lib/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="~/lib/selectize.js-master/dist/css/selectize.css" />
+        <link rel="stylesheet" href="~/lib/selectize.js-master/dist/css/selectize.bootstrap3.css" />
+        <link href="~/css/style.css" rel="stylesheet" asp-append-version="true">
+        <link href="~/css/selectize.css" rel="stylesheet" asp-append-version="true">
+        <link href="~/css/site.css" rel="stylesheet" />
+
+        <base id="baseApp" href="/TaapApplication" />
+        <base id="baseReport" href="http://203.151.56.136/TaapReport" />
+    </environment>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="~/lib/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
+
+
+</head>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+    <div class="warpper">
+        <div class="sk-spinner sk-spinner-cube-grid">
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+        </div>
+    </div>
+    <header class="app-header navbar">
+        <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action=""></a>
+        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+            </li>
+            <li class="nav-item px-3">
+            </li>
+            <li class="nav-item px-3">
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item d-md-down-none">
+            </li>
+            <li class="nav-item d-md-down-none">
+            </li>
+            <li class="nav-item d-md-down-none">
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user-circle fa-lg"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-header text-center">
+                        <strong>Account</strong>
+                    </div>
+
+                    <a id="profile" class="dropdown-item" href="#" data-form="any">
+                        <i class="icon-user icons"></i> Profile
+                    </a>
+                    <div class="divider"></div>
+                    <a class="dropdown-item" asp-area="" asp-controller="SignIn" asp-action="" data-form="any">
+                        <i class="icon-lock icons"></i> Logout
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </header>
+
+    <div class="app-body">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-title">APIC System</li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="PartReceives" data-form="parts-receive" asp-action="">
+                            <i class="icon-social-dropbox "></i>
+                            Part Receive
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="ReceiveReferences" data-form="buy-off" asp-action="">
+                            <i class="icon-paper-plane"></i>
+                            Buy off
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Transfers" data-form="transfer" asp-action="">
+                            <i class="icon-share-alt"></i>
+                            Transfer
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-docs"></i> Report</a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="ReportPartsReceive" data-form="rpt-parts-receive" asp-action="">
+                                    <i class="icon-doc"></i> Parts receive
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="ReportPartsMovement" data-form="rpt-parts-movement" asp-action="">
+                                    <i class="icon-doc"></i> Parts movement
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="ReportStockAvailable" data-form="rpt-stock-available" asp-action="">
+                                    <i class="icon-doc"></i> Stock available
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="ReportStockMaterial" data-form="rpt-stock-material" asp-action="">
+                                    <i class="icon-doc"></i> Stock material
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="ReportCarsMovement" data-form="rpt-cars-movement" asp-action="">
+                                    <i class="icon-doc"></i> Car movement
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-title">User & Roles</li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Roles" asp-action="" data-form="roles">
+                            <i class="icon-directions icons"></i>
+                            Roles
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Permissions" asp-action="" data-form="permissions">
+                            <i class="icon-lock-open icons"></i>
+                            Permissions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Users" asp-action="" data-form="users">
+                            <i class="icon-people"></i>
+                            Users
+                        </a>
+                    </li>
+                    <li class="nav-title">Configurated</li>
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-database"></i>Master data</a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="MasterTypes" asp-action="" data-form="master-types">
+                                    <i class="icon-settings"></i>
+                                    Types
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="MasterShops" asp-action="" data-form="master-shops">
+                                    <i class="icon-settings"></i>
+                                    Shops
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="MasterTypeItem" asp-action="" data-form="master-type-items">
+                                    <i class="icon-settings"></i>
+                                    Setup type & shop
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="MasterModels" asp-action="" data-form="master-models">
+                                    <i class="icon-settings"></i>
+                                    Models
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        </div>
+
+        <!-- Main content -->
+        <main class="main">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">AIPC System</li>
+            </ol>
+
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+            <!-- /.conainer-fluid -->
+        </main>
+
+    </div>
+
+    <footer class="app-footer">
+        <span><a href="#">TESM APPLICATION v.0.02</a> © 2018</span>
+    </footer>
+
+    <environment include="Development">
+
+        <!-- Bootstrap and necessary plugins -->
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/popper.js/dist/umd/popper.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/lib/pace-progress/pace.min.js"></script>
+
+        <script src="~/lib/selectize.js-master/dist/js/standalone/selectize.min.js"></script>
+        <script src="~/js/site.js"></script>
+
+        <!-- CoreUI main scripts -->
+        <script src="~/js/app.js"></script>
+
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/popper.js/dist/umd/popper.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/lib/pace-progress/pace.min.js"></script>
+
+        <script src="~/lib/selectize.js-master/dist/js/standalone/selectize.min.js"></script>
+
+        <!-- CoreUI main scripts -->
+        <script src="~/js/app.js"></script>
+        <script src="~/js/site.js"></script>
+    </environment>
+
+    <script src="~/lib/moment.js/moment.min.js"></script>
+    <script src="~/lib/moment.js/moment-with-location.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        var baseApp = $('#baseApp').attr('href');
+        if (!localStorage.getItem("access_token")) {
+            window.location.href = baseApp + '/SignIn';
+        };
+
+        $(document).ready(function () {
+            var acct = localStorage.getItem('access_token')
+            var decode = parseJwt(acct);
+
+            $('#profile').attr('href', baseApp + '/Users/Profile/' + decode.UserId);
+            moment.locale('th');
+        })
+
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

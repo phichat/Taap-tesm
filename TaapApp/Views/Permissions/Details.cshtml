@@ -1,0 +1,116 @@
+﻿@model TaapApp.Models.PermissionsViewModel
+
+@{
+    ViewData["Title"] = "Permission | Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<h2>Details</h2>
+
+<div>
+    <h4>Permissions</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-md-2">
+            Role :
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.RoleName)
+        </dd>
+
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Form) :
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.Form)
+        </dd>
+
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Description) :
+        </dt>
+        <dd class="col-md-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+
+    <hr class="mt-0">
+
+    <dl class="row">
+        <dt class="col-md-1">
+            View :
+        </dt>
+        <dd class="col-md-1">
+            @if (Model.Viewer == "True")
+            {
+                <p class="badge badge-success">@Model.Viewer</p>
+            }
+            else
+            {
+                <p class="badge badge-danger">@Model.Viewer</p>
+            }
+        </dd>
+
+        <dt class="col-md-1">
+            Create :
+        </dt>
+        <dd class="col-md-1">
+            @if (Model.Creater == "True")
+            {
+                <p class="badge badge-success">@Model.Creater</p>
+            }
+            else
+            {
+                <p class="badge badge-danger">@Model.Creater</p>
+            }
+        </dd>
+
+        <dt class="col-md-1">
+            Edit :
+        </dt>
+        <dd class="col-md-1">
+            @if (Model.Editer == "True")
+            {
+                <p class="badge badge-success">@Model.Editer</p>
+            }
+            else
+            {
+                <p class="badge badge-danger">@Model.Editer</p>
+            }
+        </dd>
+
+        <dt class="col-md-1">
+            Delete :
+        </dt>
+        <dd class="col-md-1">
+            @if (Model.Deleter == "True")
+            {
+                <p class="badge badge-success">@Model.Deleter</p>
+            }
+            else
+            {
+                <p class="badge badge-danger">@Model.Deleter</p>
+            }
+        </dd>
+
+        <dt class="col-md-1">
+            Print :
+        </dt>
+        <dd class="col-md-1">
+            @if (Model.Printer == "True")
+            {
+                <p class="badge badge-success">@Model.Printer</p>
+            }
+            else
+            {
+                <p class="badge badge-danger">@Model.Printer</p>
+            }
+        </dd>
+    </dl>
+</div>
+
+<hr class="mt-0">
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PermissionId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

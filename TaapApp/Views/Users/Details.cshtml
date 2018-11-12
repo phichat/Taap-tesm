@@ -1,0 +1,106 @@
+﻿@model TaapApp.Models.UsersViewModel
+
+@{
+    ViewData["Title"] = "Users | Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<h2>Details</h2>
+
+<div>
+    <h4>Users</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-md-1"></dt>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.RoleName)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.RoleName)
+        </dd>
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.LastLoginDate)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.LastLoginDate)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.CreateBy)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.CreateBy)
+        </dd>
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.UpdateBy)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.UpdateBy)
+        </dd>
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.UserId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

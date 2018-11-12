@@ -1,0 +1,88 @@
+﻿@model TaapApp.Models.MasterTypeItem
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+<h2>Create</h2>
+<h4>MasterTypeItem</h4>
+<hr />
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="CreateBy" />
+
+    <div class="row">
+        <label asp-for="TypeId" class="col-md-2 control-label">Type</label>
+        <span class="star-required">*</span>
+        <div class="col-md-3 form-group">
+            <select asp-for="TypeId" name="TypeId" class="form-control" placeholder="Choose type" required>
+                <option disabled="" selected value=""></option>
+                @foreach (var item in ViewBag.SelectOptionType)
+                {
+                    <option value=@item.Value>@item.Text</option>
+                }
+            </select>
+            <span asp-validation-for="TypeId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="ShopId" class="col-md-2 control-label">Shop</label>
+        <span class="star-required">*</span>
+        <div class="col-md-3 form-group">
+            <select asp-for="ShopId" name="ShopId" class="form-control" placeholder="Choose type" required>
+                <option disabled="" selected value=""></option>
+                @foreach (var item in ViewBag.SelectOptionShop)
+                {
+                    <option value=@item.Value>@item.Text</option>
+                }
+            </select>
+            <span asp-validation-for="ShopId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="Status" class="col-md-2 control-label"></label>
+        <span class="star-required">*</span>
+        <div class="col-md-9 form-group">
+            <div class="radio radio-info radio-inline">
+                <div class="form-check form-check-inline">
+                    <input asp-for="Status" id="status1" value="true" type="radio"  required/>
+                    <label for="status1">
+                        Use
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input asp-for="Status" id="status2" value="false" type="radio"  required/>
+                    <label for="status2">
+                        Not use
+                    </label>
+
+                </div>
+            </div>
+            <span asp-validation-for="Status" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <button type="submit" class="btn btn-info" data-permission="editer" >
+                <i class="fa fa-save"></i> Create
+            </button>
+            &nbsp; | &nbsp;
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    window.onload = function () {
+        var acct = localStorage.getItem('access_token')
+        var decode = parseJwt(acct);
+        $('input[name=CreateBy]').val(decode.UserId);
+    };
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

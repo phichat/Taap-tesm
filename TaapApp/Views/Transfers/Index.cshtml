@@ -1,0 +1,233 @@
+﻿@*@model IEnumerable<TaapApp.Models.Transfer>*@
+@{
+    ViewData["Title"] = "Transfers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .icons-list li .value {
+        right: 0px !important;
+    }
+
+    th.md {
+        min-width: 350px;
+    }
+
+    th.sm {
+        min-width: 150px;
+    }
+
+    th.xs {
+        min-width: 75px;
+    }
+</style>
+
+<meta name="form" content="@ViewBag.MetaForm" />
+
+@section Scripts {
+    <script src="@Url.Content("~/js/views/transfers/transfer.js")"></script>
+}
+
+<div class="card-group">
+    <div class="card card-accent-primary col-lg-7 col-md-7 col-sm-12 pr-0 pl-0">
+        <div class="card-header">
+            <div class="callout callout-info mt-0 mb-0">
+                <strong class="h5">
+                    <i class="icon-note"></i>
+                </strong>
+                <div class="title">Set transfer no</div>
+            </div>
+        </div>
+        <div class="card-body">
+
+            <form action="" id="frm-transfer">
+                <div class="row">
+                    <label class="col-md-3 col-sm-12 col-form-label" for="">Transfer No :</label>
+                    <div class="col-md-4 col-sm-12 form-group">
+                        <input type="hidden" name="tfId"/>
+                        <input type="hidden" name="receiveNo"/>
+                        <input type="hidden" name="dateToProduction"/>
+                        <input type="hidden" name="partType"/>
+                        <input class="form-control form-control-sm" type="text" name="tfNo" placeholder="" required>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2 col-sm-12">
+                        <button type="button" class="btn btn-primary btn-sm form-control" data-permission="editer"
+                        onclick="onSave('#frm-transfer')">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                    </div>
+                    <div class="col-md-2 col-sm-12">
+                        <button type="button" class="btn btn-danger btn-sm form-control" onclick="onReset()">
+                               <i class="icon-refresh"></i> Resert
+                        </button>
+                    </div>
+                </div>
+               </form>
+            <hr class="mt-0">
+
+            <form id="frm-summary">
+                <div class="row">
+                    <div class="col-md-7 col-12">
+                        <input type="hidden" name="rowNo"/>
+                        <ul class="icons-list">
+                            <li>
+                                <i class="icon-calendar icons font-xl bg-success"></i>
+                                <div class="desc">
+                                    <div class="title">Rec. Date</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">Date</div>
+                                    <strong class="summary" name="dateToProduction"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="icon-key icons font-xl bg-warning"></i>
+                                <div class="desc">
+                                    <div class="title">Receive No</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="receiveNo"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="icon-puzzle icons font-xl bg-primary"></i>
+                                <div class="desc">
+                                    <div class="title">Part type</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">type</div>
+                                    <strong class="summary" name="partType"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa fa-barcode icons font-xl bg-info"></i>
+                                <div class="desc">
+                                    <div class="title">Commission No.</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="commissionNo"></strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 col-12">
+                        <ul class="icons-list">
+                            <li>
+                                <i class="fa fa-cube icons font-xl bg-primary"></i>
+                                <div class="desc">
+                                    <div class="title">Packing Mouth</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="packingMonth"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa fa-car icons font-xl bg-primary"></i>
+                                <div class="desc">
+                                    <div class="title">Model</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="model"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="icon-grid icons font-xl bg-success"></i>
+                                <div class="desc">
+                                    <div class="title">Shop</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">Name</div>
+                                    <strong class="summary" name="shop"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="icon-tag icons font-xl bg-info"></i>
+                                <div class="desc">
+                                    <div class="title">Consignment</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="consignment"></strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card card-accent-primary col-lg-5 col-md-5 col-sm-12 pr-0 pl-0">
+        <div class="card-header">
+            <div class="callout callout-info mt-0 mb-0">
+                <strong class="h5">
+                    <i class="icon-magnifier"></i>
+                </strong>
+                <div class="title">Search data</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form id="search">
+                <div class="row">
+                    <label class="col-lg-4 col-md-5 col-sm-12 col-form-label" for="dateFrom">Rec. Date From :</label>
+                    <div class="col-lg-6 col-md-7 col-sm-12 form-group">
+                        <input id="dateFrom" type="date" name="dateFrom" class="form-control form-control-sm" required />
+                        <span for="dateFrom" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-lg-4 col-md-5 col-sm-12 col-form-label" for="dateTo">Rec. Date To :</label>
+                    <div class="col-lg-6 col-md-7 col-sm-12 form-group">
+                        <input id="dateTo" type="date" name="dateTo" class="form-control form-control-sm" required />
+                        <span for="dateTo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12"></div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                        <button type="button" class="btn btn-info btn-sm form-control"
+                                onclick="search('#search')"
+                                data-permission="viewer">
+                            <i class="icon-magnifier"></i>
+                            Search
+                        </button>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                        <button class="btn btn-danger btn-sm form-control" type="reset">
+                            <i class="icon-refresh"></i>
+                            Resert
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="card card-accent-primary col-sm-12 pr-0 pl-0">
+    <div class="card-body">
+        <table id="transfer_table" class="stripe hover display nowrap" style="width: 100%">
+            <thead>
+                <tr>
+                    <th class="">No</th>
+                    <th>Status</th>
+                    <th class="">Rec. Date</th>
+                    <th class="">Model</th>
+                    <th class="">PM.</th>
+                    <th class="">Set no.</th>
+                    <th class="">Commission no</th>
+                    <th class="">Part type</th>
+                    <th class="">Transfer no</th>
+                    <th style="display:none;"></th>
+                    <th style="display: none;"></th>
+                    <th class="">Edit</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>

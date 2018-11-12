@@ -1,0 +1,125 @@
+﻿@model TaapApp.Models.Users
+
+@{
+    ViewData["Title"] = "Users | Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<h2>Create</h2>
+
+<h4>Users</h4>
+<hr />
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="row">
+        <label asp-for="UserName" class="col-md-2 control-label"></label>
+        <span class="star-required">*</span>
+        <div class="col-md-3 form-group">
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="Password" class="col-md-2 control-label"></label>
+        <span class="star-required">*</span>
+        <div class="col-md-3 form-group">
+            <input asp-for="Password" type="password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="FirstName" class="col-md-2 control-label"></label>
+        <span class="star-required">*</span>
+        <div class="col-md-3 form-group">
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="LastName" class="col-md-2 control-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="col-md-3 form-group">
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="Email" class="col-md-2 control-label"></label>
+        <span style="color: transparent;">*</span>
+        <div class="col-md-3 form-group">
+            <input asp-for="Email" type="email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label asp-for="RoleId" class="col-md-2 control-label">Role</label>
+        <span class="star-required">*</span>
+        <div class="col-md-3 form-group">
+            <select asp-for="RoleId" class="form-control">
+                <option selected disabled></option>
+                @foreach (var item in ViewBag.SelectOptionRoles)
+                {
+                    <option value=@item.Value>@item.Text</option>
+                }
+            </select>
+            <span asp-validation-for="RoleId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <input asp-for="CreateBy" type="hidden" />
+
+
+    @*<div class="form-group">
+            <label asp-for="CreateBy" class="control-label"></label>
+            <input asp-for="CreateBy" class="form-control" />
+            <span asp-validation-for="CreateBy" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CreateDate" class="control-label"></label>
+            <input asp-for="CreateDate" class="form-control" />
+            <span asp-validation-for="CreateDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UpdateBy" class="control-label"></label>
+            <input asp-for="UpdateBy" class="form-control" />
+            <span asp-validation-for="UpdateBy" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UpdateDate" class="control-label"></label>
+            <input asp-for="UpdateDate" class="form-control" />
+            <span asp-validation-for="UpdateDate" class="text-danger"></span>
+        </div>*@
+    @*<div class="form-group">
+            <label asp-for="LastLoginDate" class="control-label"></label>
+            <input asp-for="LastLoginDate" class="form-control" />
+            <span asp-validation-for="LastLoginDate" class="text-danger"></span>
+        </div>*@
+    <div class="row form-group">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary" data-permission="creater">
+                <i class="fa fa-save"></i> Save
+            </button>
+            &nbsp; | &nbsp;
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var acct = localStorage.getItem('access_token')
+            var decode = parseJwt(acct);
+            $('input[name=CreateBy]').val(decode.UserId);
+        };
+    </script>
+</form>
+
+
+

@@ -1,0 +1,166 @@
+﻿@model TaapApp.Models.PartReceive
+
+@{
+    ViewData["Title"] = "Parts Receive | Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<h2>Details</h2>
+
+<div>
+    <h4>Parts Receive</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.ReceiveNo) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.ReceiveNo)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.PackingMonth) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.PackingMonth)
+        </dd>
+    </dl>
+
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Model) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Consignment) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Consignment)
+        </dd>
+    </dl>
+
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.CommissionFrom) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.CommissionFrom)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.CommissionTo) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.CommissionTo)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Shop) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Shop)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.CustomEntryNo) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.CustomEntryNo)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.InvoiceNo) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.InvoiceNo)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.DateToProduction) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.DateToProduction)
+        </dd>
+    </dl>
+
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.PartNo) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.PartNo)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.PartDescription) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.PartDescription)
+        </dd>
+    </dl>
+
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Qty) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Qty)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Amount) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Qpv) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Qpv)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Um) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Um)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.PartType) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.PartType)
+        </dd>
+    </dl>
+</div>
+<div class="form-group row">
+    <a asp-action="Edit" asp-route-id="@Model.ReceiveId">Edit</a>&nbsp; | &nbsp;
+    <a asp-action="Index">Back to List</a>
+</div>

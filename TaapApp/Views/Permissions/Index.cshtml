@@ -1,0 +1,201 @@
+﻿@model IEnumerable<TaapApp.Models.PermissionsViewModel>
+@{
+    ViewData["Title"] = "Permission";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<style>
+    .icons-list li .value {
+        right: 0px !important;
+    }
+
+    th.md {
+        min-width: 350px;
+    }
+
+    th.sm {
+        min-width: 150px;
+    }
+
+    th.xs {
+        min-width: 75px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+    .social-box {
+        min-height: unset;
+        margin-bottom: unset;
+        text-align: center;
+        background: #fff;
+        border: none;
+    }
+
+    .card-group > .card {
+        margin-bottom: unset !important;
+        border: none;
+    }
+
+        .card-group > .card:first-child {
+            text-align: center;
+        }
+
+        .card-group > .card:last-child {
+            border-left: 1px solid #c2cfd6;
+        }
+</style>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="h2 text-muted mb-3">
+                    <i class="icon-lock-open icons"></i> &nbsp; List Permissions
+                </div>
+
+                <hr class="mt-0">
+
+                <div class="card-group">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>
+                                <a asp-action="Create">
+                                    <i class="icon-plus icons font-2xl" style="position: relative; top: 5px;"></i>&nbsp; Create New
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="search" method="get" asp-action="Search">
+                                <div class="row">
+                                    <label class="col-md-3 col-sm-12 col-form-label" for="">Role :</label>
+                                    <div class="col-lg-6 col-md-7 col-sm-12 form-group">
+                                        <select id="" name="role" class="form-control form-control-sm" placeholder="Choose role">
+                                            <option disabled="" selected></option>
+                                            @foreach (var item in ViewBag.SelectOptionRoles)
+                                            {
+                                                <option value=@item.Value>@item.Text</option>
+                                            }
+                                        </select>
+                                        <span for="role" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-3 col-sm-12 col-form-label" for="">Form :</label>
+                                    <div class="col-lg-6 col-md-7 col-sm-12 form-group">
+                                        <select id="" name="form" class="form-control form-control-sm" placeholder="Choose form">
+                                            <option disabled="" selected></option>
+                                            @foreach (var item in ViewBag.SelectOptionPages)
+                                            {
+                                                <option value=@item.Value>@item.Text</option>
+                                            }
+                                        </select>
+                                        <span for="form" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-12"></div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                                        <button id="btn-search" type="submit" class="btn btn-info btn-sm form-control">
+                                            <i class="icon-magnifier"></i>
+                                            Search
+                                        </button>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                                        <button class="btn btn-danger btn-sm form-control" type="reset">
+                                            <i class="icon-refresh"></i>
+                                            Resert
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div style="overflow:scroll; max-height: 400px;">
+    <table class="table table-sm table-striped">
+        <thead>
+            <tr>
+                <th class="sm">
+                    @Html.DisplayNameFor(model => model.RoleName)
+                </th>
+                <th class="sm">
+                    @Html.DisplayNameFor(model => model.Form)
+                </th>
+                <th class="md">
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.Viewer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Creater)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Editer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Deleter)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Printer)
+                    </th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoleName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Form)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Viewer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Creater)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Editer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Deleter)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Printer)
+                        </td>*@
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.PermissionId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.PermissionId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.PermissionId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

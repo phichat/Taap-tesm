@@ -1,0 +1,87 @@
+﻿@model TaapApp.Models.MasterTypeItemDetail
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+<h2>Details</h2>
+
+<div>
+    <h4>MasterTypeItem</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.TypeName)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.TypeName)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.ShopName)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.ShopName)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-md-3">
+            <div class="radio radio-info radio-inline">
+                <div class="form-check form-check-inline">
+                    <input asp-for="Status" id="status1" value="true" type="radio" disabled />
+                    <label for="status1">
+                        Use
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input asp-for="Status" id="status2" value="false" type="radio" disabled />
+                    <label for="status2">
+                        Not use
+                    </label>
+
+                </div>
+            </div>
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.CreateBy)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.CreateBy)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.UpdateBy)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.UpdateBy)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ItemId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

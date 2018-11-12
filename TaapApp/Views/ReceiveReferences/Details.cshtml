@@ -1,0 +1,145 @@
+﻿@model TaapApp.Models.ReceiveReference
+
+@{
+    ViewData["Title"] = "Receive Reference | Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<h2>Details</h2>
+
+<div>
+    <h4>Receive Reference</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-md-2 control-label">
+            PM & Model:
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.ReceiveNo)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.CommissionNo) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.CommissionNo)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.SetNo) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.SetNo)
+        </dd>
+
+        @*<dt class="col-md-1"></dt>
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.DateToProduction) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.DateToProduction)
+        </dd>*@
+    </dl>
+
+    @*<dl class="row">
+        <dt class="col-md-2 control-label">
+            TF(CKD) No.:
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.TransferNoCkd)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2 control-label">
+            TF(LOC) No.:
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.TransferNoLoc)
+        </dd>
+    </dl>*@
+
+    <dl class="row">
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.Vdono) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Vdono)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.Date) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.ModelType) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.ModelType)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.LotNo) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.LotNo)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.ProductionNo) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.ProductionNo)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.PaintTrim) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.PaintTrim)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.ChassisNo) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.ChassisNo)
+        </dd>
+
+        <dt class="col-md-1"></dt>
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.EngineNo) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.EngineNo)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-md-2 control-label">
+            @Html.DisplayNameFor(model => model.Remark) :
+        </dt>
+        <dd class="col-md-3">
+            @Html.DisplayFor(model => model.Remark)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Vdoid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
