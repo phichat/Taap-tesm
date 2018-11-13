@@ -417,12 +417,16 @@ namespace TaapApp.Models
 
                 entity.Property(e => e.TfId);
 
-                entity.Property(e => e.ReceiveNo)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.ReceiveNo)
+                //.IsRequired()
+                //.HasMaxLength(50)
+                //.IsUnicode(false);
 
                 entity.Property(e => e.DateToProduction).HasColumnType("datetime");
+
+                entity.Property(e => e.PackingMonth).HasMaxLength(50);
+
+                entity.Property(e => e.Consignment).HasMaxLength(50);
 
                 entity.Property(e => e.PartType).HasMaxLength(25);
 
