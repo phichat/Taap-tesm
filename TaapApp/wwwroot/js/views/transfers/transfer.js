@@ -68,17 +68,16 @@ function renderTable(result) {
             '<td class="partType">' + e.partType + '</td>' +
             '<td class="tfNo">' + e.tfNo + '</td>' +
             '<td class="tfId" style="display:none;">' + e.tfId + '</td>' +
-            '<td class="shop" style="display:none;">' + e.shop + '</td>' +
             '<td>' +
             '<a href="javaScript:void(0);" ' + 
             'onclick=getTransfer("'+
             index+'","'+
             e.dateToProduction+'","'+
             e.commissionFrom+'","'+
-            e.commissionTo+'","'+
-            e.receiveNo+'");>Edit</a>' +
+            e.commissionTo+'");>Edit</a>' +
             '</td>' +
             '</tr>'
+
     });
 
     var table = $(tableTf);
@@ -92,7 +91,7 @@ function renderTable(result) {
 
 }
 
-function getTransfer(rowNo, dateToProduction, commissionFrom, commissionTo, receiveNo) {
+function getTransfer(rowNo, dateToProduction, commissionFrom, commissionTo) {
     var datetoP = moment(dateToProduction);
     var comfrom = parseInt(commissionFrom);
     var comto = parseInt(commissionTo)
@@ -113,13 +112,14 @@ function getTransfer(rowNo, dateToProduction, commissionFrom, commissionTo, rece
     
     $(frmTransfer).find('input[name=tfNo]').val(tfNo).focus();
     $(frmTransfer).find('input[name=dateToProduction]').val(dateToProduction);
+    $(frmTransfer).find('input[name=model]').val(model);
+    $(frmTransfer).find('input[name=packingMonth]').val(packingMonth);
+    $(frmTransfer).find('input[name=consignment]').val(consignment);
     $(frmTransfer).find('input[name=partType]').val(partType);
-    $(frmTransfer).find('input[name=receiveNo]').val(receiveNo);
     $(frmTransfer).find('input[name=tfId]').val(tfId);
 
     $(frmSummary).find('input[name=rowNo]').val(rowNo);
     $(frmSummary).find('strong[name=dateToProduction]').text(datetoP.format('L'));
-    $(frmSummary).find('strong[name=receiveNo]').text(receiveNo);
     $(frmSummary).find('strong[name=packingMonth]').text(packingMonth);
     $(frmSummary).find('strong[name=model]').text(model);
     $(frmSummary).find('strong[name=consignment]').text(consignment);
@@ -132,15 +132,18 @@ function onSave(frm) {
     var valid = $(frm).validate();
     valid.element('input[name=tfNo]');
     valid.element('input[name=dateToProduction]');
+    valid.element('input[name=model]');
+    valid.element('input[name=packingMonth]');
+    valid.element('input[name=consignment]');
     valid.element('input[name=partType]');
-    valid.element('input[name=receiveNo]');
     valid.element('input[name=tfId]');
-
     if (
     valid.element('input[name=tfNo]') &&
     valid.element('input[name=dateToProduction]') &&
+    valid.element('input[name=model]') &&
+    valid.element('input[name=packingMonth]') &&
+    valid.element('input[name=consignment]') &&
     valid.element('input[name=partType]') &&
-    valid.element('input[name=receiveNo]') &&
     valid.element('input[name=tfId]') 
     ) {
 
@@ -193,17 +196,17 @@ function getStatus(status, statusDesc) {
 function onReset(){
     $(frmTransfer).find('input[name=tfNo]').val('');
     $(frmTransfer).find('input[name=dateToProduction]').val('');
+    $(frmTransfer).find('input[name=model]').val('');
+    $(frmTransfer).find('input[name=packingMonth]').val('');
+    $(frmTransfer).find('input[name=consignment]').val('');
     $(frmTransfer).find('input[name=partType]').val('');
-    $(frmTransfer).find('input[name=receiveNo]').val('');
     $(frmTransfer).find('input[name=tfId]').val('');
 
 
     $(frmSummary).find('strong[name=dateToProduction]').text('');
-    $(frmSummary).find('strong[name=receiveNo]').text('');
     $(frmSummary).find('strong[name=packingMonth]').text('');
     $(frmSummary).find('strong[name=model]').text('');
     $(frmSummary).find('strong[name=consignment]').text('');
     $(frmSummary).find('strong[name=commissionNo]').text('');
     $(frmSummary).find('strong[name=partType]').text('');
-    $(frmSummary).find('strong[name=shop]').text('');
 }

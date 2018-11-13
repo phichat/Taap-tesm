@@ -66,14 +66,12 @@ namespace TaapApp.Controllers
                                        .Where(x => x.DateToProduction >= dateFrom && x.DateToProduction <= dateTo)
                                        .Select(x => new
                                        {
-                                           x.ReceiveNo,
                                            x.DateToProduction,
                                            x.Model,
                                            x.PackingMonth,
                                            x.Consignment,
                                            x.CommissionFrom,
                                            x.CommissionTo,
-                                           x.Shop,
                                            PartType = SetPartType(x.PartType)
                                        })
                                        .Distinct()
@@ -84,21 +82,20 @@ namespace TaapApp.Controllers
                                        .ToListAsync();
 
                 var res = (from _pr in pr
-                           join _tf in tf on new { _pr.ReceiveNo, _pr.PartType, _pr.DateToProduction } equals new { _tf.ReceiveNo, _tf.PartType, _tf.DateToProduction } into a1
+                           join _tf in tf on new { _pr.PackingMonth, _pr.Consignment, _pr.PartType, _pr.DateToProduction } equals 
+                           new { _tf.PackingMonth, _tf.Consignment, _tf.PartType, _tf.DateToProduction } into a1
 
                            from _a1 in a1.DefaultIfEmpty()
 
                            select new TransferResponse
                            {
                                TfId = _a1 == null ? 0 : _a1.TfId,
-                               ReceiveNo = _pr.ReceiveNo,
                                DateToProduction = _pr.DateToProduction,
                                Model = _pr.Model,
                                PackingMonth = _pr.PackingMonth,
                                Consignment = _pr.Consignment,
                                CommissionTo = _pr.CommissionTo,
                                CommissionFrom = _pr.CommissionFrom,
-                               Shop = _pr.Shop,
                                PartType = _pr.PartType,
                                TfNo = _a1 == null ? "" : _a1.TfNo,
                                Status = _a1 == null ? 0 : 1,
@@ -106,7 +103,7 @@ namespace TaapApp.Controllers
                            }).ToList()
                              .OrderBy(x => x.TfNo)
                              .ThenBy(x => x.DateToProduction)
-                             .ThenBy(x => x.ReceiveNo);
+                             .ThenBy(x => x.CommissionFrom);
 
                 return Ok(res);
 
@@ -114,58 +111,6 @@ namespace TaapApp.Controllers
                 return StatusCode(500, ex.Message);
             }
 
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetTransfer(string receiveNo, DateTime dateToProduction, string partType) {
-            try{
-
-                var pr = await _context.PartReceive
-                        .Where(x => x.ReceiveNo == receiveNo && x.DateToProduction == dateToProduction && SetPartType(x.PartType) == partType)
-                        .Select(x => new
-                        {
-                            x.ReceiveNo,
-                            x.DateToProduction,
-                            x.Model,
-                            x.PackingMonth,
-                            x.Consignment,
-                            x.CommissionFrom,
-                            x.CommissionTo,
-                            x.Shop,
-                            PartType = SetPartType(x.PartType)
-                        })
-                        .Distinct()
-                        .ToListAsync();
-
-                var tf = await _context.Transfers
-                                       .Where(x => x.ReceiveNo == receiveNo && x.DateToProduction == dateToProduction && x.PartType == partType)
-                                       .ToListAsync();
-
-                var res = (from _pr in pr
-                           join _tf in tf on new { _pr.ReceiveNo, _pr.PartType, _pr.DateToProduction } equals new { _tf.ReceiveNo, _tf.PartType, _tf.DateToProduction } into a1
-
-                           from _a1 in a1.DefaultIfEmpty()
-
-                           select new TransferResponse
-                           {
-                               TfId = _a1 == null ? 0 : _a1.TfId,
-                               ReceiveNo = _pr.ReceiveNo,
-                               DateToProduction = _pr.DateToProduction,
-                               Model = _pr.Model,
-                               PackingMonth = _pr.PackingMonth,
-                               Consignment = _pr.Consignment,
-                               CommissionTo = _pr.CommissionTo,
-                               CommissionFrom = _pr.CommissionFrom,
-                               Shop = _pr.Shop,
-                               PartType = _pr.PartType,
-                               TfNo = _a1 == null ? "" : _a1.TfNo
-                           }).ToList();
-
-                return Ok(res.FirstOrDefault());
-
-            } catch(Exception ex) {
-                return StatusCode(500, ex.Message);
-            }
         }
 
         // POST: Transfers/Edit/5
@@ -177,7 +122,7 @@ namespace TaapApp.Controllers
 
             try
             {
-                if (TransferExists(transfer.TfId))
+                if (TransferExists(transfer.TfId) || transfer.TfId == 0)
                 {
                     _context.Update(transfer);
                     await _context.SaveChangesAsync();
