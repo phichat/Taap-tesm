@@ -53,7 +53,7 @@ function search(frm) {
                 }
 
                 $('table tbody').html(tr);
-            $('table').DataTable(tableOptions);
+                $('table').DataTable(tableOptions);
         },
         error: function (xhr, status, error) {
             alert(error);

@@ -418,9 +418,9 @@ namespace TaapApp.Models
                 entity.Property(e => e.TfId);
 
                 //entity.Property(e => e.ReceiveNo)
-                //.IsRequired()
-                //.HasMaxLength(50)
-                //.IsUnicode(false);
+                    //.IsRequired()
+                    //.HasMaxLength(50)
+                    //.IsUnicode(false);
 
                 entity.Property(e => e.DateToProduction).HasColumnType("datetime");
 

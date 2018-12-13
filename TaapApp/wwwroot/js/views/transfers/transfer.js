@@ -101,7 +101,6 @@ function getTransfer(rowNo, dateToProduction, commissionFrom, commissionTo) {
         return $(this).text() == rowNo;
     }).closest("tr");
 
-    var partType = tr.find('td.partType').text();
     var model = tr.find('td.model').text();
     var packingMonth = tr.find('td.packingMonth').text();
     var consignment = tr.find('td.consignment').text();
