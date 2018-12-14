@@ -24,3 +24,7 @@ TaapApp/.vs/TaapApp/v15/.suo
 TaapApp/.vs/TaapApp/DesignTimeBuild/.dtbcache
 TaapApp/.vs/config/applicationhost.config
 FPL-0005.xlsx
+*.pdf
+*.xls
+cpl_879_20170319_201702_201703200305_002.txt
+FPL-0005.xlsb
