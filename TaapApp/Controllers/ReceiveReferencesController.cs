@@ -164,17 +164,18 @@ namespace TaapApp.Controllers
             }
         }
 
-        private bool CheckingShop(string commission)
+        private bool CheckingShop(string commission, string model)
         {
             var partReceives = _context.PartReceive
                 .FromSql($"select distinct Model, Shop from dbo.PartReceive where {commission} between CommissionFrom and CommissionTo")
+                .Where(item => item.Model == model)
                 .Select(item => new
                 {
                     model = item.Model,
                     shop = item.Shop
                 });
 
-            var model = partReceives.FirstOrDefault().model;
+            // var model = partReceives.FirstOrDefault().model;
 
             var items = (from _model in _context.MasterModels
                          join item in _context.MasterTypeItem on _model.TypeId equals item.TypeId into a1
@@ -254,13 +255,14 @@ namespace TaapApp.Controllers
                             }
 
                             totalCount++;
+                            var model = worksheet.Cells[row, 2].Text.Trim().ToString();
                             var commissionno = worksheet.Cells[row, 5].Text.Trim().ToString();
                             commissionno = commissionno.Replace(" ", string.Empty);
 
                             // 1. ตรวจสอบว่า Model นี้อยู่ในประเภทรถอะไร
                             // 2. ตรวจสอบว่า ประเภทรถ นี้ต้องผ่านกี่ Shop
                             // 3. เปรียบเทียบว่า ชิ้นส่วนที่อัพโหลดเข้าไปครบทุก Shop ตามเงื่อนไขหรือยัง 
-                            if (!CheckingShop(commissionno))
+                            if (!CheckingShop(commissionno, model))
                             {
                                 // In process
                                 refListView.Add(SetItemWithStatus(0, commissionno));
@@ -362,7 +364,7 @@ namespace TaapApp.Controllers
 
             var _ref = await _context.ReceiveReference.SingleOrDefaultAsync(m => m.Vdoid == id);
 
-            ViewBag.InProcess = CheckingShop(_ref.CommissionNo);
+            ViewBag.InProcess = CheckingShop(_ref.CommissionNo, _ref.ModelType);
             ViewBag.MetaForm = GetMetaForm();
             return View(_ref);
         }
