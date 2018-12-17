@@ -73,6 +73,83 @@ function search(frm) {
     }
 }
 
+function exportCPL(frm) {
+    var obj = $(frm).serializeObject();
+    if (obj.model == '') {
+        $(frm).find('[required]').focus();
+        return false;
+    }
+
+    if (obj.packingMonth == '') {
+        $(frm).find('[required]').focus();
+        return false;
+    }
+
+    var valid = $(frm).validate();
+    valid.element('#dateFrom')
+    valid.element('#dateTo')
+
+    if (valid.element('#dateFrom') && valid.element('#dateTo')) {
+
+        $(warpper).css('display', 'block');
+        $.ajax({
+            url: baseApp + '/ReportCarsMovement/ExportCPL',
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: $(frm).serialize(),
+            success: function (result) {
+                console.log(result);
+            },
+            error: function (xhr, status, error) {
+                alert(error);
+            },
+            complete: function () {
+                $(warpper).css('display', 'none');
+            }
+        });
+    }
+}
+
+
+function exportFPL(frm) {
+    var obj = $(frm).serializeObject();
+    if (obj.model == '') {
+        $(frm).find('[required]').focus();
+        return false;
+    }
+
+    if (obj.packingMonth == '') {
+        $(frm).find('[required]').focus();
+        return false;
+    }
+
+    var valid = $(frm).validate();
+    valid.element('#dateFrom')
+    valid.element('#dateTo')
+
+    if (valid.element('#dateFrom') && valid.element('#dateTo')) {
+
+        $(warpper).css('display', 'block');
+        $.ajax({
+            url: baseApp + '/ReportCarsMovement/ExportFPL',
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: $(frm).serialize(),
+            success: function (result) {
+                console.log(result);
+            },
+            error: function (xhr, status, error) {
+                alert(error);
+            },
+            complete: function () {
+                $(warpper).css('display', 'none');
+            }
+        });
+    }
+}
+
 
 var baseReport = $('#baseReport').attr('href');
 

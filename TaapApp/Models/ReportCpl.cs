@@ -3,6 +3,7 @@ namespace TaapApp.Models
 {
     public class ReportCpl
     {
+        public Int64 Id { get; set; }
         public DateTime DateFG { get; set; }
         public string CommissionFrom { get; set; }
         public string CommissionTo { get; set; }

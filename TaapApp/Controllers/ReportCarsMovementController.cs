@@ -81,7 +81,7 @@ namespace TaapApp.Controllers
         }
 
 
-        [HttpGet("ExportCPL")]
+        [HttpGet, ActionName("ExportCPL")]
         public async Task<IActionResult> ExportCPL(string model, string packingMonth, DateTime dateFrom, DateTime dateTo)
         {
             if (model == null || packingMonth == null)
