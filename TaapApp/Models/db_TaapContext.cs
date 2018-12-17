@@ -25,7 +25,8 @@ namespace TaapApp.Models
         public virtual DbSet<ReportStockAvailable> SPReportStorcAvailable { get; set; }
         public virtual DbSet<ReportStockMaterial> SPReportStockMaterial { get; set; }
         public virtual DbSet<ReportCarMovement> SPReportCarMovement { get; set; }
-
+        public virtual DbSet<ReportCpl> SPReportCpl { get; set; }
+        public virtual DbSet<ReportFpl> SPReportFpl { get; set; }
         
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
