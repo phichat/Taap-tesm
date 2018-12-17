@@ -5,8 +5,8 @@ namespace TaapApp.Models
     {
         public Int64 Id { get; set; }
         public string Model { get; set; }
-        public int Year { get; set; }
-        public int Month { get; set; }
+        public string Year { get; set; }
+        public string Month { get; set; }
         public string SetNo { get; set; }
     }
 }
