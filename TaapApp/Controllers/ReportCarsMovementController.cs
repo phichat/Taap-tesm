@@ -229,7 +229,7 @@ namespace TaapApp.Controllers
             {
                 await stream.CopyToAsync(memory);
             }
-            //memory.Position = 0;
+            memory.Position = 0;
 
             return File(memory, GetContentType(path), Path.GetFileName(path));
 
@@ -546,7 +546,7 @@ namespace TaapApp.Controllers
             {
                 await stream.CopyToAsync(memory);
             }
-            //memory.Position = 0;
+            memory.Position = 0;
 
             return File(memory, GetContentType(path), Path.GetFileName(path));
         }
