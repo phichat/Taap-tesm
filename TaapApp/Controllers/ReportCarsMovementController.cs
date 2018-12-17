@@ -229,7 +229,7 @@ namespace TaapApp.Controllers
             {
                 await stream.CopyToAsync(memory);
             }
-            //memory.Position = 0;
+            memory.Position = 0;
 
             return File(memory, GetContentType(path), Path.GetFileName(path));
 
@@ -532,7 +532,7 @@ namespace TaapApp.Controllers
                                     $"{C66}{C67}{C68}{C69}{C70}{C71}{C72}" +
                                     $"{C73}{C74}{C75}{C76}{C77}{C78}{C79}" +
                                     $"{C80}{C81}{C82}{C83}{C84}{C85}{C86}" +
-                                    $"{C87}{C88}{C89}{C90}{C91}{C92}}");
+                                    $"{C87}{C88}{C89}{C90}{C91}{C92}");
                 });
 
                 Byte[] info = new ASCIIEncoding().GetBytes(text.ToString());
@@ -546,7 +546,7 @@ namespace TaapApp.Controllers
             {
                 await stream.CopyToAsync(memory);
             }
-            //memory.Position = 0;
+            memory.Position = 0;
 
             return File(memory, GetContentType(path), Path.GetFileName(path));
         }
