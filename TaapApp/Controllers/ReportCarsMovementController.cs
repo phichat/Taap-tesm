@@ -275,37 +275,37 @@ namespace TaapApp.Controllers
 
                 list.ForEach(x =>
                 {
-                    var C01 = "010";
+                    var C01 = "010"; //1
 
-                    var C02 = "001";
+                    var C02 = "001"; //4
 
-                    var C03 = "0500";
+                    var C03 = "0500"; //7
 
-                    var C04 = x.Year;
+                    var C04 = x.Year; //11
 
-                    var C05 = x.Month;
+                    var C05 = x.Month; //15
 
-                    var C06 = j.ToString().PadLeft(4, '0');
+                    var C06 = j.ToString().PadLeft(4, '0'); //17
 
-                    var _C07 = new List<int>();
+                    var _C07 = new List<int>(); //21
                     for (int i = 0; i < 3; i++) { _C07.Add(1 + i); }
                     var C07 = string.Join("", _C07);
 
                     // Length 30
-                    var _C08 = new List<string> { "THAILAND" };
+                    var _C08 = new List<string> { "THAILAND" }; //24
                     for (int i = 0; i < 22; i++) { _C08.Add("A"); }
                     var C08 = string.Join("", _C08);
 
-                    var _C09 = new List<int>();
+                    var _C09 = new List<int>(); //54
                     for (int i = 0; i < 8; i++) { _C09.Add(1 + i); }
                     var C09 = string.Join("", _C09);
 
-                    var _C10 = new List<string> { x.Model };
+                    var _C10 = new List<string> { x.Model }; //62
                     var _C10Length = 30 - x.Model.Length;
                     for (int i = 0; i < _C10Length; i++) { _C10.Add("A"); }
                     var C10 = string.Join("", _C10);
 
-                    var _C11 = new List<int>();
+                    var _C11 = new List<int>(); //
                     for (int i = 0; i < 7; i++) { _C11.Add(1 + i); }
                     var C11 = string.Join("", _C11);
 
@@ -369,7 +369,7 @@ namespace TaapApp.Controllers
 
                     var C31 = "+";
 
-                    var C32 = "999999,999";
+                    var C32 = "000000,000";
 
                     var C33 = "01";
 
@@ -383,15 +383,15 @@ namespace TaapApp.Controllers
 
                     var C36 = j.ToString().PadLeft(6, '0');
 
-                    var C37 = "9999,999";   //304
+                    var C37 = "0000,000";   //304
 
-                    var C38 = "999,99";     //312
+                    var C38 = "000,00";     //312
 
                     var C39 = "M";          
 
                     var C40 = "+";
 
-                    var C41 = "999999,999"; //320
+                    var C41 = "000000,000"; //320
 
                     var _C42 = new List<string>();
                     for (int i = 0; i < 20; i++) { _C42.Add("0"); }
@@ -459,29 +459,29 @@ namespace TaapApp.Controllers
 
                     var C60 = "+";
 
-                    var C61 = "99999,99";
+                    var C61 = "00000,00";
 
                     var C62 = "+";
 
-                    var C63 = "999999,999";
+                    var C63 = "000000,000";
 
                     var C64 = x.SetNo;
 
-                    var C65 = "+";      //783
+                    var C65 = "+"; //783
 
-                    var C66 = "999,999";//784
+                    var C66 = "000,000";//784
 
                     var C66A = "+";     //784
 
-                    var C66B = "999,99999"; //792
+                    var C66B = "000,00000"; //792
 
                     var _C67 = new List<string>();
                     for (int i = 0; i < 5; i++) { _C67.Add("0"); }
                     var C67 = string.Join("", _C67);
 
-                    var C68 = "99999,99";  //806
+                    var C68 = "00000,00";  //806
 
-                    var C69 = "999999,99"; //814
+                    var C69 = "000000,00"; //814
 
                     var _C70 = new List<string>();
                     for (int i = 0; i < 10; i++) { _C70.Add("0"); }
@@ -511,17 +511,17 @@ namespace TaapApp.Controllers
                     for (int i = 0; i < 3; i++) { _C77.Add("0"); }
                     var C77 = string.Join("", _C77);
 
-                    var C78 = "999999,999"; //906
+                    var C78 = "000000,000"; //906
 
-                    var C79 = "999999,99999999"; //916
+                    var C79 = "000000,00000000"; //916
 
-                    var C79A = "9999";
+                    var C79A = "0000";
 
-                    var C80 = "999999,99";
+                    var C80 = "000000,00";
 
-                    var C80A = "9999";
+                    var C80A = "0000";
 
-                    var C81 = "99999999,99";
+                    var C81 = "00000000,00";
 
                     var _C82 = new List<string>();
                     for (int i = 0; i < 20; i++) { _C82.Add("0"); }
