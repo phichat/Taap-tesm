@@ -96,7 +96,7 @@ namespace TaapApp.Controllers
             //Create the file.
             using (FileStream fs = fi.Create())
             {
-                StringBuilder text = new StringBuilder();
+                var text = new StringBuilder();
 
                 var p0 = model;
                 var p1 = packingMonth;
@@ -128,10 +128,11 @@ namespace TaapApp.Controllers
                     for (int i = 0; i < 3; i++) { _C04.Add(1 + i); }
                     var C04 = string.Join("", _C04);
 
-                    //var _C05 = new List<string>();
-                    //for (int i = 0; i < 14; i++) { _C05.Add("0"); }
-                    //var C05 = string.Join("", _C05);
-                    var C05 = "CONTEST001";
+                    var CNumber = "CONTEST001";
+                    var _C05 = new List<string>();
+                    var _C05Length = 14 - CNumber.Length;
+                    for (int i = 0; i < _C05Length; i++) { _C05.Add(" "); }
+                    var C05 = string.Join("", _C05);
 
                     // 9
                     var _C06 = new List<string> { "1"};
@@ -158,7 +159,7 @@ namespace TaapApp.Controllers
                     var C10 = string.Join("", _C10);
 
                     var _C11 = new List<string>();
-                    for (int i = 0; i < 5; i++) { _C11.Add("   "); }
+                    for (int i = 0; i < 5; i++) { _C11.Add(" "); }
                     var C11 = string.Join("", _C11);
 
                     var C12 = "SEAL000001";
@@ -206,11 +207,11 @@ namespace TaapApp.Controllers
 
                     var C30 = "0850";
 
-                    //var _C31 = new List<string>();
-                    //for (int i = 0; i < 15; i++) { _C31.Add("0"); }
-                    //var C31 = string.Join("", _C31);
-
-                    var C31 = $"{C06.Trim()}{C07}";
+                    var variableC31 = $"{C06.Trim()}{C07}";
+                    var _C31 = new List<string>();
+                    var _C31Length = 15 - variableC31.Length;
+                    for (int i = 0; i < _C31Length; i++) { _C31.Add("0"); }
+                    var C31 = string.Join("", _C31);
 
                     var _C32 = new List<string>();
                     for (int i = 0; i < 72; i++) { _C32.Add("0"); }
