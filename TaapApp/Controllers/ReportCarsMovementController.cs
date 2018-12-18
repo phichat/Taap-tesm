@@ -383,15 +383,15 @@ namespace TaapApp.Controllers
 
                     var C36 = j.ToString().PadLeft(6, '0');
 
-                    var C37 = "9999,999";
+                    var C37 = "9999,999";   //304
 
-                    var C38 = "999,99";
+                    var C38 = "999,99";     //312
 
-                    var C39 = "M";
+                    var C39 = "M";          
 
                     var C40 = "+";
 
-                    var C41 = "999999,999";
+                    var C41 = "999999,999"; //320
 
                     var _C42 = new List<string>();
                     for (int i = 0; i < 20; i++) { _C42.Add("0"); }
@@ -467,17 +467,21 @@ namespace TaapApp.Controllers
 
                     var C64 = x.SetNo;
 
-                    var C65 = "+";
+                    var C65 = "+";      //783
 
-                    var C66 = "999,99999";
+                    var C66 = "999,999";//784
+
+                    var C66A = "+";     //784
+
+                    var C66B = "999,99999"; //792
 
                     var _C67 = new List<string>();
                     for (int i = 0; i < 5; i++) { _C67.Add("0"); }
                     var C67 = string.Join("", _C67);
 
-                    var C68 = "99999,99";
+                    var C68 = "99999,99";  //806
 
-                    var C69 = "999999,99";
+                    var C69 = "999999,99"; //814
 
                     var _C70 = new List<string>();
                     for (int i = 0; i < 10; i++) { _C70.Add("0"); }
@@ -507,7 +511,7 @@ namespace TaapApp.Controllers
                     for (int i = 0; i < 3; i++) { _C77.Add("0"); }
                     var C77 = string.Join("", _C77);
 
-                    var C78 = "999999,999";
+                    var C78 = "999999,999"; //906
 
                     var C79 = "999999,99999999";
 
@@ -518,6 +522,93 @@ namespace TaapApp.Controllers
                     var _C82 = new List<string>();
                     for (int i = 0; i < 20; i++) { _C82.Add("0"); }
                     var C82 = string.Join("", _C82);
+
+
+                    //var F001 = "010";
+                    //var F004 = "001";
+                    //var F007 = "0500";
+                    //var F011 = "";
+                    //var F015 = "";
+                    //var F017 = "";
+                    //var F021 = "";
+                    //var F024 = "";
+                    //var F054 = "";
+                    //var F062 = "";
+                    //var F092 = "";
+                    //var F099 = "";
+                    //var F106 = "";
+                    //var F110 = "";
+                    //var F114 = "";
+                    //var F117 = "";
+                    //var F125 = "";
+                    //var F127 = "";
+                    //var F130 = "";
+                    //var F135 = "";
+                    //var F140 = "";
+                    //var F143 = "";
+                    //var F144 = "";
+                    //var F146 = "";
+                    //var F147 = "";
+                    //var F159 = "";
+                    //var F160 = "";
+                    //var F164 = "";
+                    //var F168 = "";
+                    //var F178 = "";
+                    //var F223 = "";
+                    //var F273 = "";
+                    //var F274 = "";
+                    //var F284 = "";
+                    //var F286 = "";
+                    //var F292 = "";
+                    //var F298 = "";
+                    //var F304 = "";
+                    //var F312 = "";
+                    //var F318 = "";
+                    //var F319 = "";
+                    //var F320 = "";
+                    //var F330 = "";
+                    //var F350 = "";
+                    //var F400 = "";
+                    //var F430 = "";
+                    //var F460 = "";
+                    //var F465 = "";
+                    //var F469 = "";
+                    //var F476 = "";
+                    //var F481 = "";
+                    //var F487 = "";
+                    //var F491 = "";
+                    //var F495 = "";
+                    //var F545 = "";
+                    //var F595 = "";
+                    //var F600 = "";
+                    //var F750 = "";
+                    //var F754 = "";
+                    //var F757 = "";
+                    //var F761 = "";
+                    //var F762 = "";
+                    //var F770 = "";
+                    //var F771 = "";
+                    //var F781 = "";
+                    //var F783 = "";
+                    //var F784 = "";
+                    //var F791 = "";
+                    //var F792 = "";
+                    //var F801 = "";
+                    //var F806 = "";
+                    //var F814 = "";
+                    //var F823 = "";
+                    //var F833 = "";
+                    //var F849 = "";
+                    //var F862 = "";
+                    //var F864 = "";
+                    //var F884 = "";
+                    //var F885 = "";
+                    //var F903 = "";
+                    //var F906 = "";
+                    //var F916 = "";
+                    //var F931 = "";
+                    //var F940 = "";
+                    //var F951 = "";
 
                     j++;
 
