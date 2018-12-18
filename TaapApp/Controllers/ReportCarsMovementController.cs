@@ -96,7 +96,7 @@ namespace TaapApp.Controllers
             //Create the file.
             using (FileStream fs = fi.Create())
             {
-                StringBuilder text = new StringBuilder();
+                var text = new StringBuilder();
 
                 var p0 = model;
                 var p1 = packingMonth;
@@ -159,7 +159,7 @@ namespace TaapApp.Controllers
                     var C10 = string.Join("", _C10);
 
                     var _C11 = new List<string>();
-                    for (int i = 0; i < 5; i++) { _C11.Add("   "); }
+                    for (int i = 0; i < 5; i++) { _C11.Add(" "); }
                     var C11 = string.Join("", _C11);
 
                     var C12 = "SEAL000001";
@@ -207,11 +207,11 @@ namespace TaapApp.Controllers
 
                     var C30 = "0850";
 
-                    //var _C31 = new List<string>();
-                    //for (int i = 0; i < 15; i++) { _C31.Add("0"); }
-                    //var C31 = string.Join("", _C31);
-
-                    var C31 = $"{C06.Trim()}{C07}";
+                    var variableC31 = $"{C06.Trim()}{C07}";
+                    var _C31 = new List<string>();
+                    var _C31Length = 15 - variableC31.Length;
+                    for (int i = 0; i < _C31Length; i++) { _C31.Add("0"); }
+                    var C31 = string.Join("", _C31);
 
                     var _C32 = new List<string>();
                     for (int i = 0; i < 72; i++) { _C32.Add("0"); }
