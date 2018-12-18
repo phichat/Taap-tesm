@@ -151,7 +151,7 @@ namespace TaapApp.Controllers
                     var Country = "001879THAILAND";
                     var _C09 = new List<string> { Country };
                     var _C09Length = 30 - Country.Length;
-                    for (int i = 0; i < _C09Length; i++) { _C09.Add("A"); }
+                    for (int i = 0; i < _C09Length; i++) { _C09.Add(" "); }
                     var C09 = string.Join("", _C09);
 
                     var _C10 = new List<string>();
