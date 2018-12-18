@@ -383,9 +383,9 @@ namespace TaapApp.Controllers
 
                     var C36 = j.ToString().PadLeft(6, '0');
 
-                    var C37 = "0000,000";   //304
+                    var C37 = "0000,000"; //304
 
-                    var C38 = "000,00";     //312
+                    var C38 = "000,00"; //312
 
                     var C39 = "M";          
 
@@ -469,9 +469,9 @@ namespace TaapApp.Controllers
 
                     var C65 = "+"; //783
 
-                    var C66 = "000,000";//784
+                    var C66 = "000,000"; //784
 
-                    var C66A = "+";     //784
+                    var C66A = "+"; //784
 
                     var C66B = "000,00000"; //792
 
@@ -479,7 +479,7 @@ namespace TaapApp.Controllers
                     for (int i = 0; i < 5; i++) { _C67.Add("0"); }
                     var C67 = string.Join("", _C67);
 
-                    var C68 = "00000,00";  //806
+                    var C68 = "00000,00"; //806
 
                     var C69 = "000000,00"; //814
 
@@ -487,13 +487,15 @@ namespace TaapApp.Controllers
                     for (int i = 0; i < 10; i++) { _C70.Add("0"); }
                     var C70 = string.Join("", _C70);
 
-                    var _C71 = new List<string>();
-                    for (int i = 0; i < 16; i++) { _C71.Add("0"); }
-                    var C71 = string.Join("", _C71);
+                    //var _C71 = new List<string>();
+                    //for (int i = 0; i < 16; i++) { _C71.Add("0"); }
+                    //var C71 = string.Join("", _C71);
+                    var C71 = "A 222 340 47 00 ";
 
-                    var _C72 = new List<string>();
-                    for (int i = 0; i < 13; i++) { _C72.Add("0"); }
-                    var C72 = string.Join("", _C72);
+                    //var _C72 = new List<string>();
+                    //for (int i = 0; i < 13; i++) { _C72.Add("0"); }
+                    //var C72 = string.Join("", _C72);
+                    var C72 = "A2223404700  ";
 
                     var C73 = "00";
 
