@@ -527,6 +527,10 @@ namespace TaapApp.Controllers
                     for (int i = 0; i < 20; i++) { _C82.Add("0"); }
                     var C82 = string.Join("", _C82);
 
+                    var _C83 = new List<string>();
+                    for (int i = 0; i < 122; i++) { _C83.Add("0"); }
+                    var C83 = string.Join("", _C83);
+
 
                     //var F001 = "010";
                     //var F004 = "001";
@@ -627,7 +631,7 @@ namespace TaapApp.Controllers
                                     $"{C57}{C58}{C59}{C60}{C61}{C62}{C63}" +
                                     $"{C64}{C65}{C66}{C66A}{C66B}{C67}{C68}{C69}{C70}" +
                                     $"{C71}{C72}{C73}{C74}{C75}{C76}{C77}" +
-                                    $"{C78}{C79}{C79A}{C80}{C80A}{C81}{C82}");
+                                    $"{C78}{C79}{C79A}{C80}{C80A}{C81}{C82}{C83}");
                 });
 
                 Byte[] info = new ASCIIEncoding().GetBytes(text.ToString());
