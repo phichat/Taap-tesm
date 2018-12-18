@@ -513,9 +513,13 @@ namespace TaapApp.Controllers
 
                     var C78 = "999999,999"; //906
 
-                    var C79 = "999999,99999999";
+                    var C79 = "999999,99999999"; //916
+
+                    var C79A = "9999";
 
                     var C80 = "999999,99";
+
+                    var C80A = "9999";
 
                     var C81 = "99999999,99";
 
@@ -623,7 +627,7 @@ namespace TaapApp.Controllers
                                     $"{C57}{C58}{C59}{C60}{C61}{C62}{C63}" +
                                     $"{C64}{C65}{C66}{C66A}{C66B}{C67}{C68}{C69}{C70}" +
                                     $"{C71}{C72}{C73}{C74}{C75}{C76}{C77}" +
-                                    $"{C78}{C79}{C80}{C81}{C82}");
+                                    $"{C78}{C79}{C79A}{C80}{C80A}{C81}{C82}");
                 });
 
                 Byte[] info = new ASCIIEncoding().GetBytes(text.ToString());
