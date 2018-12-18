@@ -210,7 +210,7 @@ namespace TaapApp.Controllers
                     //for (int i = 0; i < 15; i++) { _C31.Add("0"); }
                     //var C31 = string.Join("", _C31);
 
-                    var C31 = $"1{C07}";
+                    var C31 = $"{C06.Trim()}{C07}";
 
                     var _C32 = new List<string>();
                     for (int i = 0; i < 72; i++) { _C32.Add("0"); }
