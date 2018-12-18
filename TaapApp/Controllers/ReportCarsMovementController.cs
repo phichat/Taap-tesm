@@ -183,7 +183,7 @@ namespace TaapApp.Controllers
 
                     var C21 = C20;
 
-                    var C22 = "0";
+                    var C22 = "1";
 
                     var C23 = x.CommissionFrom;
 
