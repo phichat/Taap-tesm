@@ -10,5 +10,6 @@ namespace TaapApp.Models
         public string SetNo { get; set; }
         public string CommissionFrom { get; set; }
         public string CommissionTo { get; set; }
+        public string CommissionNo { get; set; }
     }
 }
