@@ -112,17 +112,16 @@ namespace TaapApp.Controllers
                     p3.ToString("yyyy-MM-dd")
                 }).ToListAsync();
 
-
                 list.ForEach(x =>
                 {
                     var _C01 = new List<string>();
-                    for (int i = 0; i < 25; i++) { _C01.Add("A"); }
+                    for (int i = 0; i < 25; i++) { _C01.Add("0"); }
                     var C01 = string.Join("", _C01);
 
                     var C02 = $"{x.DateFG.ToString("yyyy")}{x.DateFG.ToString("MM")}{x.DateFG.ToString("dd")}";
 
                     var _C03 = new List<string>();
-                    for (int i = 0; i < 20; i++) { _C03.Add("A"); }
+                    for (int i = 0; i < 20; i++) { _C03.Add("0"); }
                     var C03 = string.Join("", _C03);
 
                     var _C04 = new List<int>();
@@ -130,7 +129,7 @@ namespace TaapApp.Controllers
                     var C04 = string.Join("", _C04);
 
                     var _C05 = new List<string>();
-                    for (int i = 0; i < 14; i++) { _C05.Add("A"); }
+                    for (int i = 0; i < 14; i++) { _C05.Add("0"); }
                     var C05 = string.Join("", _C05);
 
                     var _C06 = new List<int>();
@@ -138,11 +137,11 @@ namespace TaapApp.Controllers
                     var C06 = string.Join("", _C06);
 
                     var _C07 = new List<string>();
-                    for (int i = 0; i < 6; i++) { _C07.Add("A"); }
+                    for (int i = 0; i < 6; i++) { _C07.Add("0"); }
                     var C07 = string.Join("", _C07);
 
                     var _C08 = new List<string>();
-                    for (int i = 0; i < 17; i++) { _C08.Add("A"); }
+                    for (int i = 0; i < 17; i++) { _C08.Add("0"); }
                     var C08 = string.Join("", _C08);
 
                     // Length 30
@@ -151,7 +150,7 @@ namespace TaapApp.Controllers
                     var C09 = string.Join("", _C09);
 
                     var _C10 = new List<string>();
-                    for (int i = 0; i < 2; i++) { _C10.Add("A"); }
+                    for (int i = 0; i < 2; i++) { _C10.Add("0"); }
                     var C10 = string.Join("", _C10);
 
                     var _C11 = new List<string>();
@@ -165,7 +164,7 @@ namespace TaapApp.Controllers
                     var C14 = x.PackingMonth;
 
                     var _C15 = new List<string>();
-                    for (int i = 0; i < 6; i++) { _C15.Add("A"); }
+                    for (int i = 0; i < 6; i++) { _C15.Add("0"); }
                     var C15 = string.Join("", _C15);
 
                     var C16 = "999,999";
@@ -180,14 +179,14 @@ namespace TaapApp.Controllers
 
                     var C21 = C20;
 
-                    var C22 = "A";
+                    var C22 = "0";
 
                     var C23 = x.CommissionFrom;
 
                     var C24 = x.CommissionTo;
 
                     var _C25 = new List<string>();
-                    for (int i = 0; i < 30; i++) { _C25.Add("A"); }
+                    for (int i = 0; i < 30; i++) { _C25.Add("0"); }
                     var C25 = string.Join("", _C25);
 
                     var _C26 = new List<string>{ x.Model };
@@ -204,11 +203,11 @@ namespace TaapApp.Controllers
                     var C30 = "0850";
 
                     var _C31 = new List<string>();
-                    for (int i = 0; i < 15; i++) { _C31.Add("A"); }
+                    for (int i = 0; i < 15; i++) { _C31.Add("0"); }
                     var C31 = string.Join("", _C31);
 
                     var _C32 = new List<string>();
-                    for (int i = 0; i < 72; i++) { _C32.Add("A"); }
+                    for (int i = 0; i < 72; i++) { _C32.Add("0"); }
                     var C32 = string.Join("", _C32);
 
                     text.AppendLine($"{C01}{C02}{C03}{C04}{C05}{C06}{C07}" +
@@ -299,225 +298,217 @@ namespace TaapApp.Controllers
                     for (int i = 0; i < _C10Length; i++) { _C10.Add("A"); }
                     var C10 = string.Join("", _C10);
 
-                    var _C11 = new List<string>();
-                    for (int i = 0; i < 7; i++) { _C11.Add("A"); }
+                    var _C11 = new List<int>();
+                    for (int i = 0; i < 7; i++) { _C11.Add(1 + i); }
                     var C11 = string.Join("", _C11);
 
-                    var _C12 = new List<string>();
-                    for (int i = 0; i < 7; i++) { _C12.Add("A"); }
+                    var _C12 = new List<int>();
+                    for (int i = 0; i < 7; i++) { _C12.Add(1 + i); }
                     var C12 = string.Join("", _C12);
 
-                    var _C13 = new List<string>();
-                    for (int i = 0; i < 7; i++) { _C13.Add("A"); }
+                    var _C13 = new List<int>();
+                    for (int i = 0; i < 4; i++) { _C13.Add(1 + i); }
                     var C13 = string.Join("", _C13);
 
-                    var _C14 = new List<string>();
-                    for (int i = 0; i < 4; i++) { _C14.Add("A"); }
+                    var _C14 = new List<int>();
+                    for (int i = 0; i < 4; i++) { _C14.Add(1 + i); }
                     var C14 = string.Join("", _C14);
 
-                    var _C15 = new List<string>();
-                    for (int i = 0; i < 4; i++) { _C15.Add("A"); }
+                    var _C15 = new List<int>();
+                    for (int i = 0; i < 3; i++) { _C15.Add(1 + i); }
                     var C15 = string.Join("", _C15);
 
-                    var _C16 = new List<string>();
-                    for (int i = 0; i < 3; i++) { _C16.Add("A"); }
-                    var C16 = string.Join("", _C16);
+                    var C16 = $"{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yyyy")}";
 
-                    var C17 = $"{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yyyy")}";
+                    var C17 = j.ToString().PadLeft(2, '0');
 
-                    var C18 = j.ToString().PadLeft(2, '0');
+                    var _C18 = new List<string>();
+                    for (int i = 0; i < 3; i++) { _C18.Add("0"); }
+                    var C18 = string.Join("", _C18);
 
-                    var _C19 = new List<string>();
-                    for (int i = 0; i < 3; i++) { _C19.Add("A"); }
-                    var C19 = string.Join("", _C19);
+                    var C19 = j.ToString().PadLeft(5, '0');
 
-                    var _C20 = new List<string>();
-                    for (int i = 0; i < 5; i++) { _C20.Add("A"); }
-                    var C20 = string.Join("", _C20);
+                    var C20 = j.ToString().PadLeft(3, '0');
 
-                    var _C21 = new List<string>();
-                    for (int i = 0; i < 3; i++) { _C21.Add("A"); }
-                    var C21 = string.Join("", _C21);
+                    var C21 = "H";
 
-                    var C22 = "H";
+                    var C22 = j.ToString().PadLeft(2, '0');
 
-                    var C23 = j.ToString().PadLeft(2, '0');
+                    var C23 = "A";
 
-                    var C24 = "A";
+                    var C24 = j.ToString().PadLeft(12, '0');
 
-                    var C25 = j.ToString().PadLeft(12, '0');
+                    var C25 = "A";
 
-                    var C26 = "A";
+                    var _C26 = new List<int>();
+                    for (int i = 0; i < 4; i++) { _C26.Add(1 + i); }
+                    var C26 = string.Join("", _C26);
 
-                    var _C27 = new List<string>();
-                    for (int i = 0; i < 4; i++) { _C27.Add("A"); }
+                    var _C27 = new List<int>();
+                    for (int i = 0; i < 4; i++) { _C27.Add(1 + i); }
                     var C27 = string.Join("", _C27);
 
-                    var _C28 = new List<string>();
-                    for (int i = 0; i < 4; i++) { _C28.Add("A"); }
-                    var C28 = string.Join("", _C28);
+                    var C28 = j.ToString().PadLeft(5, '0'); ;
 
-                    var C29 = j.ToString().PadLeft(5, '0'); ;
+                    var _C29 = new List<string>();
+                    for (int i = 0; i < 50; i++) { _C29.Add("0"); }
+                    var C29 = string.Join("", _C29);
 
                     var _C30 = new List<string>();
-                    for (int i = 0; i < 50; i++) { _C30.Add("A"); }
+                    for (int i = 0; i < 50; i++) { _C30.Add("0"); }
                     var C30 = string.Join("", _C30);
 
-                    var _C31 = new List<string>();
-                    for (int i = 0; i < 50; i++) { _C31.Add("A"); }
-                    var C31 = string.Join("", _C31);
+                    var C31 = "+";
 
-                    var C32 = "+";
+                    var C32 = "999999,999";
 
-                    var C33 = "999999,999";
+                    var C33 = "01";
 
-                    var C34 = "01";
+                    var _C34 = new List<string>();
+                    for (int i = 0; i < 6; i++) { _C34.Add("0"); }
+                    var C34 = string.Join("", _C34);
 
                     var _C35 = new List<string>();
-                    for (int i = 0; i < 6; i++) { _C35.Add("A"); }
+                    for (int i = 0; i < 6; i++) { _C35.Add("0"); }
                     var C35 = string.Join("", _C35);
 
-                    var _C36 = new List<string>();
-                    for (int i = 0; i < 6; i++) { _C36.Add("A"); }
-                    var C36 = string.Join("", _C36);
+                    var C36 = j.ToString().PadLeft(6, '0');
 
-                    var C37 = j.ToString().PadLeft(6, '0');
+                    var C37 = "9999,999";
 
-                    var C38 = "9999,999";
+                    var C38 = "999,99";
 
-                    var C39 = "999,99";
+                    var C39 = "M";
 
-                    var C40 = "M";
+                    var C40 = "+";
 
-                    var C41 = "+";
+                    var C41 = "999999,999";
 
-                    var C42 = "999999,999";
+                    var _C42 = new List<string>();
+                    for (int i = 0; i < 20; i++) { _C42.Add("0"); }
+                    var C42 = string.Join("", _C42);
 
                     var _C43 = new List<string>();
-                    for (int i = 0; i < 20; i++) { _C43.Add("A"); }
+                    for (int i = 0; i < 50; i++) { _C43.Add("0"); }
                     var C43 = string.Join("", _C43);
 
                     var _C44 = new List<string>();
-                    for (int i = 0; i < 50; i++) { _C44.Add("A"); }
+                    for (int i = 0; i < 30; i++) { _C44.Add("0"); }
                     var C44 = string.Join("", _C44);
 
                     var _C45 = new List<string>();
-                    for (int i = 0; i < 30; i++) { _C45.Add("A"); }
+                    for (int i = 0; i < 30; i++) { _C45.Add("0"); }
                     var C45 = string.Join("", _C45);
 
                     var _C46 = new List<string>();
-                    for (int i = 0; i < 30; i++) { _C46.Add("A"); }
+                    for (int i = 0; i < 5; i++) { _C46.Add("0"); }
                     var C46 = string.Join("", _C46);
 
                     var _C47 = new List<string>();
-                    for (int i = 0; i < 5; i++) { _C47.Add("A"); }
+                    for (int i = 0; i < 4; i++) { _C47.Add("0"); }
                     var C47 = string.Join("", _C47);
 
-                    var _C48 = new List<string>();
-                    for (int i = 0; i < 4; i++) { _C48.Add("A"); }
+                    var _C48 = new List<int>();
+                    for (int i = 0; i < 7; i++) { _C48.Add(1 + i); }
                     var C48 = string.Join("", _C48);
 
-                    var _C49 = new List<int>();
-                    for (int i = 0; i < 7; i++) { _C49.Add(1 + i); }
-                    var C49 = string.Join("", _C49);
+                    var C49 = j.ToString().PadLeft(5, '0');
 
-                    var C50 = j.ToString().PadLeft(5, '0');
+                    var C50 = j.ToString().PadLeft(6, '0');
 
-                    var C60 = j.ToString().PadLeft(6, '0');
+                    var C51 = j.ToString().PadLeft(4, '0');
 
-                    var C61 = j.ToString().PadLeft(4, '0');
+                    var C52 = j.ToString().PadLeft(4, '0');
 
-                    var C62 = j.ToString().PadLeft(4, '0');
+                    var _C53 = new List<string>();
+                    for (int i = 0; i < 50; i++) { _C53.Add("0"); }
+                    var C53 = string.Join("", _C53);
 
-                    var _C63 = new List<string>();
-                    for (int i = 0; i < 50; i++) { _C63.Add("A"); }
-                    var C63 = string.Join("", _C63);
+                    var _C54 = new List<string>();
+                    for (int i = 0; i < 50; i++) { _C54.Add("0"); }
+                    var C54 = string.Join("", _C54);
 
-                    var _C64 = new List<string>();
-                    for (int i = 0; i < 50; i++) { _C64.Add("A"); }
-                    var C64 = string.Join("", _C64);
+                    var _C55 = new List<string>();
+                    for (int i = 0; i < 5; i++) { _C55.Add("0"); }
+                    var C55 = string.Join("", _C55);
 
-                    var _C65 = new List<string>();
-                    for (int i = 0; i < 5; i++) { _C65.Add("A"); }
-                    var C65 = string.Join("", _C65);
+                    var _C56 = new List<string>();
+                    for (int i = 0; i < 150; i++) { _C56.Add("0"); }
+                    var C56 = string.Join("", _C56);
 
-                    var _C66 = new List<string>();
-                    for (int i = 0; i < 150; i++) { _C66.Add("A"); }
-                    var C66 = string.Join("", _C66);
+                    var _C57 = new List<string>();
+                    for (int i = 0; i < 4; i++) { _C57.Add("0"); }
+                    var C57 = string.Join("", _C57);
+
+                    var _C58 = new List<string>();
+                    for (int i = 0; i < 3; i++) { _C58.Add("0"); }
+                    var C58 = string.Join("", _C58);
+
+                    var _C59 = new List<string>();
+                    for (int i = 0; i < 4; i++) { _C59.Add("0"); }
+                    var C59 = string.Join("", _C59);
+
+                    var C60 = "+";
+
+                    var C61 = "99999,99";
+
+                    var C62 = "+";
+
+                    var C63 = "999999,999";
+
+                    var C64 = x.SetNo;
+
+                    var C65 = "+";
+
+                    var C66 = "999,99999";
 
                     var _C67 = new List<string>();
-                    for (int i = 0; i < 4; i++) { _C67.Add("A"); }
+                    for (int i = 0; i < 5; i++) { _C67.Add("0"); }
                     var C67 = string.Join("", _C67);
 
-                    var _C68 = new List<string>();
-                    for (int i = 0; i < 3; i++) { _C68.Add("A"); }
-                    var C68 = string.Join("", _C68);
+                    var C68 = "99999,99";
 
-                    var _C69 = new List<string>();
-                    for (int i = 0; i < 4; i++) { _C69.Add("A"); }
-                    var C69 = string.Join("", _C69);
+                    var C69 = "999999,99";
 
-                    var C70 = "+";
+                    var _C70 = new List<string>();
+                    for (int i = 0; i < 10; i++) { _C70.Add("0"); }
+                    var C70 = string.Join("", _C70);
 
-                    var C71 = "99999,99";
+                    var _C71 = new List<string>();
+                    for (int i = 0; i < 16; i++) { _C71.Add("0"); }
+                    var C71 = string.Join("", _C71);
 
-                    var C72 = "+";
+                    var _C72 = new List<string>();
+                    for (int i = 0; i < 13; i++) { _C72.Add("0"); }
+                    var C72 = string.Join("", _C72);
 
-                    var C73 = "999999,999";
+                    var C73 = "00";
 
-                    var C74 = x.SetNo;
+                    var _C74 = new List<string>();
+                    for (int i = 0; i < 20; i++) { _C74.Add("0"); }
+                    var C74 = string.Join("", _C74);
 
-                    var C75 = "+";
+                    var C75 = "J";
 
-                    var C76 = "999,99999";
+                    var _C76 = new List<string>();
+                    for (int i = 0; i < 18; i++) { _C76.Add("0"); }
+                    var C76 = string.Join("", _C76);
 
                     var _C77 = new List<string>();
-                    for (int i = 0; i < 5; i++) { _C77.Add("A"); }
+                    for (int i = 0; i < 3; i++) { _C77.Add("0"); }
                     var C77 = string.Join("", _C77);
 
-                    var C78 = "99999,99";
+                    var C78 = "999999,999";
 
-                    var C79 = "999999,99";
+                    var C79 = "999999,99999999";
 
-                    var _C80 = new List<string>();
-                    for (int i = 0; i < 10; i++) { _C80.Add("A"); }
-                    var C80 = string.Join("", _C80);
+                    var C80 = "999999,99";
 
-                    var _C81 = new List<string>();
-                    for (int i = 0; i < 16; i++) { _C81.Add("A"); }
-                    var C81 = string.Join("", _C81);
+                    var C81 = "99999999,99";
 
                     var _C82 = new List<string>();
-                    for (int i = 0; i < 13; i++) { _C82.Add("A"); }
+                    for (int i = 0; i < 20; i++) { _C82.Add("0"); }
                     var C82 = string.Join("", _C82);
-
-                    var C83 = "AA";
-
-                    var _C84 = new List<string>();
-                    for (int i = 0; i < 20; i++) { _C84.Add("A"); }
-                    var C84 = string.Join("", _C84);
-
-                    var C85 = "J";
-
-                    var _C86 = new List<string>();
-                    for (int i = 0; i < 18; i++) { _C86.Add("A"); }
-                    var C86 = string.Join("", _C86);
-
-                    var _C87 = new List<string>();
-                    for (int i = 0; i < 3; i++) { _C87.Add("A"); }
-                    var C87 = string.Join("", _C87);
-
-                    var C88 = "999999,999";
-
-                    var C89 = "999999,99999999";
-
-                    var C90 = "999999,99";
-
-                    var C91 = "99999999,99";
-
-                    var _C92 = new List<string>();
-                    for (int i = 0; i < 20; i++) { _C92.Add("A"); }
-                    var C92 = string.Join("", _C92);
 
                     j++;
 
@@ -528,11 +519,11 @@ namespace TaapApp.Controllers
                                     $"{C29}{C30}{C31}{C32}{C33}{C34}{C35}" + 
                                     $"{C36}{C37}{C38}{C39}{C40}{C41}{C42}" +
                                     $"{C43}{C44}{C45}{C46}{C47}{C48}{C49}" +
-                                    $"{C50}{C60}{C61}{C62}{C63}{C64}{C65}" +
-                                    $"{C66}{C67}{C68}{C69}{C70}{C71}{C72}" +
-                                    $"{C73}{C74}{C75}{C76}{C77}{C78}{C79}" +
-                                    $"{C80}{C81}{C82}{C83}{C84}{C85}{C86}" +
-                                    $"{C87}{C88}{C89}{C90}{C91}{C92}");
+                                    $"{C50}{C51}{C52}{C53}{C54}{C55}{C56}" +
+                                    $"{C57}{C58}{C59}{C61}{C62}{C63}{C64}" +
+                                    $"{C65}{C66}{C67}{C68}{C69}{C70}{C71}" +
+                                    $"{C72}{C73}{C74}{C75}{C76}{C77}{C78}" +
+                                    $"{C79}{C80}{C81}{C82}");
                 });
 
                 Byte[] info = new ASCIIEncoding().GetBytes(text.ToString());
