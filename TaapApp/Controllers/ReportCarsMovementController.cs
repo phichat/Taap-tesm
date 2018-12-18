@@ -128,10 +128,11 @@ namespace TaapApp.Controllers
                     for (int i = 0; i < 3; i++) { _C04.Add(1 + i); }
                     var C04 = string.Join("", _C04);
 
-                    //var _C05 = new List<string>();
-                    //for (int i = 0; i < 14; i++) { _C05.Add("0"); }
-                    //var C05 = string.Join("", _C05);
-                    var C05 = "CONTEST001";
+                    var CNumber = "CONTEST001";
+                    var _C05 = new List<string>();
+                    var _C05Length = 14 - CNumber.Length;
+                    for (int i = 0; i < _C05Length; i++) { _C05.Add(" "); }
+                    var C05 = string.Join("", _C05);
 
                     // 9
                     var _C06 = new List<string> { "1"};
