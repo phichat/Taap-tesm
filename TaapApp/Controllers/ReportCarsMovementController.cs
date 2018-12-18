@@ -129,7 +129,7 @@ namespace TaapApp.Controllers
                     var C04 = string.Join("", _C04);
 
                     var CNumber = "CONTEST001";
-                    var _C05 = new List<string>();
+                    var _C05 = new List<string>{ CNumber };
                     var _C05Length = 14 - CNumber.Length;
                     for (int i = 0; i < _C05Length; i++) { _C05.Add(" "); }
                     var C05 = string.Join("", _C05);
@@ -159,7 +159,7 @@ namespace TaapApp.Controllers
                     var C10 = string.Join("", _C10);
 
                     var _C11 = new List<string>();
-                    for (int i = 0; i < 5; i++) { _C11.Add(" "); }
+                    for (int i = 0; i < 5; i++) { _C11.Add("0"); }
                     var C11 = string.Join("", _C11);
 
                     var C12 = "SEAL000001";
