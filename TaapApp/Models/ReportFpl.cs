@@ -8,5 +8,7 @@ namespace TaapApp.Models
         public string Year { get; set; }
         public string Month { get; set; }
         public string SetNo { get; set; }
+        public string CommissionFrom { get; set; }
+        public string CommissionTo { get; set; }
     }
 }

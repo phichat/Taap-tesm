@@ -128,25 +128,29 @@ namespace TaapApp.Controllers
                     for (int i = 0; i < 3; i++) { _C04.Add(1 + i); }
                     var C04 = string.Join("", _C04);
 
-                    var _C05 = new List<string>();
-                    for (int i = 0; i < 14; i++) { _C05.Add("0"); }
-                    var C05 = string.Join("", _C05);
+                    //var _C05 = new List<string>();
+                    //for (int i = 0; i < 14; i++) { _C05.Add("0"); }
+                    //var C05 = string.Join("", _C05);
+                    var C05 = "CONTEST001";
 
-                    var _C06 = new List<int>();
-                    for (int i = 0; i < 9; i++) { _C06.Add(1 + i); }
+                    // 9
+                    var _C06 = new List<string> { "1"};
+                    for (int i = 0; i < 8; i++) { _C06.Add(" "); }
                     var C06 = string.Join("", _C06);
 
-                    var _C07 = new List<string>();
-                    for (int i = 0; i < 6; i++) { _C07.Add("0"); }
-                    var C07 = string.Join("", _C07);
+                    //var _C07 = new List<string>();
+                    //for (int i = 0; i < 6; i++) { _C07.Add("0"); }
+                    //var C07 = string.Join("", _C07);
+                    var C07 = "000001";
 
                     var _C08 = new List<string>();
                     for (int i = 0; i < 17; i++) { _C08.Add("0"); }
                     var C08 = string.Join("", _C08);
 
-                    // Length 30
-                    var _C09 = new List<string> { "THAILAND" }; 
-                    for (int i = 0; i < 22; i++) { _C09.Add("A"); }
+                    var Country = "001879THAILAND";
+                    var _C09 = new List<string> { Country };
+                    var _C09Length = 30 - Country.Length;
+                    for (int i = 0; i < _C09Length; i++) { _C09.Add("A"); }
                     var C09 = string.Join("", _C09);
 
                     var _C10 = new List<string>();
@@ -154,7 +158,7 @@ namespace TaapApp.Controllers
                     var C10 = string.Join("", _C10);
 
                     var _C11 = new List<string>();
-                    for (int i = 0; i < 5; i++) { _C11.Add("9"); }
+                    for (int i = 0; i < 5; i++) { _C11.Add("   "); }
                     var C11 = string.Join("", _C11);
 
                     var C12 = "SEAL000001";
@@ -191,10 +195,10 @@ namespace TaapApp.Controllers
 
                     var _C26 = new List<string>{ x.Model };
                     var _C26Length = 30 - x.Model.Length;
-                    for (int i = 0; i < _C26Length; i++) { _C26.Add("A"); }
+                    for (int i = 0; i < _C26Length; i++) { _C26.Add(" "); }
                     var C26 = string.Join("", _C26);
 
-                    var C27 = "0051";
+                    var C27 = "02";
 
                     var C28 = "1495";
 
@@ -202,9 +206,11 @@ namespace TaapApp.Controllers
 
                     var C30 = "0850";
 
-                    var _C31 = new List<string>();
-                    for (int i = 0; i < 15; i++) { _C31.Add("0"); }
-                    var C31 = string.Join("", _C31);
+                    //var _C31 = new List<string>();
+                    //for (int i = 0; i < 15; i++) { _C31.Add("0"); }
+                    //var C31 = string.Join("", _C31);
+
+                    var C31 = $"{C06.Trim()}{C07}";
 
                     var _C32 = new List<string>();
                     for (int i = 0; i < 72; i++) { _C32.Add("0"); }
@@ -326,7 +332,9 @@ namespace TaapApp.Controllers
                     for (int i = 0; i < 3; i++) { _C18.Add("0"); }
                     var C18 = string.Join("", _C18);
 
-                    var C19 = j.ToString().PadLeft(5, '0');
+                    var C19 = x.CommissionFrom;
+
+                    var C19A = x.CommissionTo;
 
                     var C20 = j.ToString().PadLeft(3, '0');
 
