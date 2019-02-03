@@ -377,10 +377,10 @@ namespace TaapApp.Controllers
                     for (int i = 0; i < 6; i++) { _C34.Add("0"); }
                     var C34 = string.Join("", _C34);
 
-                    //var _C35 = new List<string>();
-                    //for (int i = 0; i < 6; i++) { _C35.Add("0"); }
-                    //var C35 = string.Join("", _C35);
-                    var C35 = "000001";
+                    var _C35 = new List<string>();
+                    for (int i = 0; i < 6; i++) { _C35.Add("0"); }
+                    var C35 = string.Join("", _C35);
+                    //var C35 = "000001";
 
                     var C36 = j.ToString().PadLeft(6, '0');
 
@@ -508,10 +508,10 @@ namespace TaapApp.Controllers
 
 
                     var C76variable = "000001";
-                    var _C76 = new List<string>();
-                    var C76Length = 18 - C76variable.Length;
-                    for (int i = 0; i < C76Length; i++) { _C76.Add(" "); }
-                    var C76 = string.Join("", _C76);
+                    //var _C76 = new List<string>();
+                    //var C76Length = 18 - C76variable.Length;
+                    //for (int i = 0; i < C76Length; i++) { _C76.Add(" "); }
+                    var C76 = C76variable.PadRight(18, ' ');
 
                     var _C77 = new List<string>();
                     for (int i = 0; i < 3; i++) { _C77.Add("0"); }
