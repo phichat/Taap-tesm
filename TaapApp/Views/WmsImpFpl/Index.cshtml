@@ -1,0 +1,358 @@
+﻿
+@{
+    ViewData["Title"] = "ImpFpl";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tb_fpl').DataTable({
+                "scrollX": true
+            });
+        });
+    </script>
+}
+
+<div class="card-group">
+    <div class="card card-accent-primary col-lg-7 col-md-7 col-sm-12 pr-0 pl-0">
+        <div class="card-header">
+            <div class="callout callout-info mt-0 mb-0">
+                <strong class="h5">
+                    <i class="icon-doc"></i>
+                </strong>
+                <div class="title">Import FPL</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form action="" id="frm-upload">
+                <div class="row">
+                    <label class="col-md-3 col-sm-12 col-form-label" for="">Input file :</label>
+                    <div class="col-md-6 col-sm-12 form-group">
+                        <input type="file" name="file" placeholder="" required>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <button type="button" class="btn btn-primary btn-sm form-control"
+                                onclick="onUploadFile('#frm-upload');"
+                                data-permission="creater">
+                            <i class="icon-cloud-upload"></i>
+                            Upload
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <hr class="mt-0">
+            <form action="" id="frm-summary">
+                <div class="row">
+                    <div class="col-md-7 col-12">
+                        <ul class="icons-list">
+                            <li>
+                                <i class="icon-key icons font-xl bg-warning"></i>
+                                <div class="desc">
+                                    <div class="title">Receive No</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="receiveNo"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa fa-cube icons font-xl bg-primary"></i>
+                                <div class="desc">
+                                    <div class="title">Packing Mouth</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="packingMonth"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa fa-car icons font-xl bg-primary"></i>
+                                <div class="desc">
+                                    <div class="title">Model</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="model"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="icon-tag icons font-xl bg-info"></i>
+                                <div class="desc">
+                                    <div class="title">Consignment</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="consignment"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa fa-barcode icons font-xl bg-info"></i>
+                                <div class="desc">
+                                    <div class="title">Commission No.</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">No.</div>
+                                    <strong class="summary" name="commissionNo"></strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 col-12">
+                        <ul class="icons-list">
+                            <li>
+                                <i class="icon-layers icons font-xl bg-info"></i>
+                                <div class="desc">
+                                    <div class="title">Total count</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">Item</div>
+                                    <strong class="summary" name="totalCount"></strong>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa fa-cubes icons font-xl bg-primary"></i>
+                                <div class="desc">
+                                    <div class="title">Total qty</div>
+                                </div>
+                                <div class="value">
+                                    <div class="small text-muted">Qty</div>
+                                    <strong class="summary" name="totalQty"></strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="card card-accent-primary col-lg-5 col-md-5 col-sm-12 pr-0 pl-0">
+        <div class="card-header">
+            <div class="callout callout-info mt-0 mb-0">
+                <strong class="h5">
+                    <i class="icon-magnifier"></i>
+                </strong>
+                <div class="title">Search data</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form id="search" method="get" asp-action="Search">
+                <div class="row">
+                    <label class="col-lg-4 col-md-5 col-sm-12 col-form-label" for="">Receive no :</label>
+                    <div class="col-lg-6 col-md-7 col-sm-12 form-group">
+                        <select id="" name="receiveNo" class="form-control form-control-sm" placeholder="Choose receiveNo" required>
+                            @*<option disabled="" selected></option>
+                                @foreach (var item in ViewBag.SelectOptionReceiveNo)
+                                {
+                                    <option value=@item.Value>@item.Text</option>
+                                }*@
+                        </select>
+                        <span for="receiveNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-lg-4 col-md-5 col-sm-12 col-form-label" for="">Rec. Date From :</label>
+                    <div class="col-lg-6 col-md-7 controls form-group">
+                        <input class="form-control form-control-sm" name="dateFrom" type="date">
+                        <span for="dateFrom" class="text-danger"></span>
+                    </div>
+                    <label class="col-lg-4 col-md-5 col-sm-12 col-form-label" for="">Rec. Date To :</label>
+                    <div class="col-lg-6 col-md-7 controls form-group">
+                        <input class="form-control form-control-sm" name="dateTo" type="date">
+                        <span for="dateTo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12"></div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                        <button id="btn-search" type="button" class="btn btn-info btn-sm form-control"
+                                onclick="search('#search')"
+                                data-permission="viewer">
+                            <i class="icon-magnifier"></i>
+                            Search
+                        </button>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                        <button class="btn btn-danger btn-sm form-control" type="reset">
+                            <i class="icon-refresh"></i>
+                            Resert
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-success" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Success</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="icons-list">
+                    <li>
+                        <i class="icon-key icons font-xl bg-warning"></i>
+                        <div class="desc">
+                            <div class="title">Receive no</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">No.</div>
+                            <strong class="summary" name="receiveNo"></strong>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon-layers icons font-xl bg-info"></i>
+                        <div class="desc">
+                            <div class="title">Total count</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Item</div>
+                            <strong class="summary" name="totalCount"></strong>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa fa-cubes icons font-xl bg-primary"></i>
+                        <div class="desc">
+                            <div class="title">Total qty</div>
+                        </div>
+                        <div class="value">
+                            <div class="small text-muted">Qty</div>
+                            <strong class="summary" name="totalQty"></strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal fade" id="dangerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-danger" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Fail</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card card-accent-primary col-sm-12 pr-0 pl-0">
+    <div class="card-body">
+
+        <table id="tb_fpl" class="stripe hover display nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Record_Header</th>
+                    <th>Packing_Center_BLG</th>
+                    <th>CKD_Planing_Plant</th>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Transport_Number</th>
+                    <th>Country_Code</th>
+                    <th>Country_Name</th>
+                    <th>Type</th>
+                    <th>Model</th>
+                    <th>Productionnumber_from</th>
+                    <th>Productionnumber_to</th>
+                    <th>Version</th>
+                    <th>Paint</th>
+                    <th>Remark</th>
+                    <th>Plant_Dispatch_Date</th>
+                    <th>Order_Number_Year</th>
+                    <th>Order_Number_Country</th>
+                    <th>Order_Number_From</th>
+                    <th>Order_Number_To</th>
+                    <th>Number_of_Cars</th>
+                    <th>CKD_Parts_or</th>
+                    <th>Partnumber_Sort_1</th>
+                    <th>Partnumber_Sort_2</th>
+                    <th>Partnumber_Sort_3</th>
+                    <th>Partnumber_Sort_4</th>
+                    <th>Partnumber_Sort_5</th>
+                    <th>Partnumber_Sort_6</th>
+                    <th>Index_Number</th>
+                    <th>Description_German</th>
+                    <th>Description_English</th>
+                    <th>Sign_for_number_of_parts</th>
+                    <th>Number_of_parts_in_package</th>
+                    <th>Units</th>
+                    <th>Package_ID</th>
+                    <th>Assistant_Material</th>
+                    <th>Running_Number_from_FZ</th>
+                    <th>Weight</th>
+                    <th>Volume</th>
+                    <th>Characteristic</th>
+                    <th>Sign_assistant_material</th>
+                    <th>Number_assistant_material</th>
+                    <th>Packing_Information</th>
+                    <th>Packing_Remark</th>
+                    <th>Colourname_German</th>
+                    <th>Colourname_English</th>
+                    <th>Assembly_Station</th>
+                    <th>Position_in_Package</th>
+                    <th>part_from_DIALOG_1</th>
+                    <th>part_from_DIALOG_2</th>
+                    <th>part_from_DIALOG_3</th>
+                    <th>part_from_DIALOG_4</th>
+                    <th>part_from_DIALOG_5</th>
+                    <th>CVI_German</th>
+                    <th>CVI_English</th>
+                    <th>Packer</th>
+                    <th>DIALOG_Adresse</th>
+                    <th>Units_pack_together</th>
+                    <th>Partnumber_Countnumber</th>
+                    <th>Partnumber_running_number</th>
+                    <th>Partprice_Sign_only_India</th>
+                    <th>Partprice_only_India</th>
+                    <th>Full_Cost_Sign_only_India</th>
+                    <th>Full_Cost_only_India</th>
+                    <th>Consignee_Key</th>
+                    <th>Taraweight_Sign</th>
+                    <th>Taraweight</th>
+                    <th>Partweight_Sign</th>
+                    <th>Partweight</th>
+                    <th>EX33_Equalisation_advise</th>
+                    <th>Variable_Cost</th>
+                    <th>Full_Cost_for_parts</th>
+                    <th>Indien_HS_Classification</th>
+                    <th>Partnumber_Printformat</th>
+                    <th>Partnumber_Readformat</th>
+                    <th>Only_internal_Field_for_CVI</th>
+                    <th>Consignee_Name</th>
+                    <th>Electrostatic_Discharge</th>
+                    <th>FZ_Number_complete</th>
+                    <th>Drawing_Geometry_Date_DGD</th>
+                    <th>Number_of_parts_from_MRP</th>
+                    <th>Transferprice_China</th>
+                    <th>EINZEL_PREIS_FREMD</th>
+                    <th>GESAMT_PREIS_FREMD</th>
+                    <th>Reserve</th>
+                    <th>filename</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+
+
+

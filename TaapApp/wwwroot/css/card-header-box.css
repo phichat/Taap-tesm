@@ -25,3 +25,7 @@
     .card-group > .card:last-child {
         border-left: 1px solid #c2cfd6;
     }
+
+.app-header {
+    background-color: #223d80 !important;
+}

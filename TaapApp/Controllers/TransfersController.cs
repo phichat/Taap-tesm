@@ -82,8 +82,8 @@ namespace TaapApp.Controllers
                                        .ToListAsync();
 
                 var res = (from _pr in pr
-                           join _tf in tf on new { _pr.PackingMonth, _pr.Consignment, _pr.PartType, _pr.DateToProduction } equals 
-                           new { _tf.PackingMonth, _tf.Consignment, _tf.PartType, _tf.DateToProduction } into a1
+                           join _tf in tf on new { _pr.PackingMonth, _pr.Consignment, _pr.Model, _pr.PartType, _pr.DateToProduction } equals 
+                           new { _tf.PackingMonth, _tf.Consignment, _tf.Model, _tf.PartType, _tf.DateToProduction } into a1
 
                            from _a1 in a1.DefaultIfEmpty()
 

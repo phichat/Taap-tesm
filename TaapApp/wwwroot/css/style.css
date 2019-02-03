@@ -3983,13 +3983,19 @@ tbody.collapse.show {
       align-items: center; }
 
 .navbar-toggler {
-  padding: 0.25rem 0.75rem;
-  font-size: 1.09375rem;
-  line-height: 1;
-  background-color: transparent;
-  border: 1px solid transparent; }
-  .navbar-toggler:hover, .navbar-toggler:focus {
-    text-decoration: none; }
+    padding: 0.25rem 0.75rem;
+    font-size: 1.09375rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #eff6f9;
+}
+    .navbar-toggler:hover {
+        color: #bce4fa;
+    }
+    .navbar-toggler:hover, .navbar-toggler:focus {
+        text-decoration: none;
+    }
   .navbar-toggler:not(:disabled):not(.disabled) {
     cursor: pointer; }
 
@@ -10359,21 +10365,22 @@ base-chart.chart {
   border: 0; }
 
 .app-header.navbar {
-  position: relative;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  height: 55px;
-  padding: 0;
-  margin: 0;
-  background-color: #fff;
-  border-bottom: 1px solid #a4b7c1; }
+    position: relative;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 55px;
+    padding: 0;
+    margin: 0;
+    background-color: #223d80;
+    border-bottom: 1px solid #a4b7c1;
+}
     .app-header.navbar .navbar-brand {
         display: inline-block;
         width: 155px;
         height: 55px;
         padding: 0.5rem 1rem;
         margin-right: 0;
-        background-color: #fff;
+        background-color: transparent;
         /*background-image: url("../img/logo.png");*/
         background-image: url('../img/tesm-logo.png');
         background-repeat: no-repeat;
@@ -10427,9 +10434,11 @@ base-chart.chart {
     color: #29363d; }
 
 .navbar-nav .nav-link, .navbar-nav .navbar .dropdown-toggle, .navbar .navbar-nav .dropdown-toggle {
-  color: #536c79; }
-  .navbar-nav .nav-link:hover, .navbar-nav .navbar .dropdown-toggle:hover, .navbar .navbar-nav .dropdown-toggle:hover, .navbar-nav .nav-link:focus, .navbar-nav .navbar .dropdown-toggle:focus, .navbar .navbar-nav .dropdown-toggle:focus {
-    color: #29363d; }
+    color: #eff6f9;
+}
+    .navbar-nav .nav-link:hover, .navbar-nav .navbar .dropdown-toggle:hover, .navbar .navbar-nav .dropdown-toggle:hover, .navbar-nav .nav-link:focus, .navbar-nav .navbar .dropdown-toggle:focus, .navbar .navbar-nav .dropdown-toggle:focus {
+        color: #bce4fa;
+    }
 
 .navbar-nav .open > .nav-link, .navbar-nav .navbar .open > .dropdown-toggle, .navbar .navbar-nav .open > .dropdown-toggle, .navbar-nav .open > .nav-link:hover, .navbar-nav .navbar .open > .dropdown-toggle:hover, .navbar .navbar-nav .open > .dropdown-toggle:hover, .navbar-nav .open > .nav-link:focus, .navbar-nav .navbar .open > .dropdown-toggle:focus, .navbar .navbar-nav .open > .dropdown-toggle:focus,
 .navbar-nav .active > .nav-link,
@@ -10484,13 +10493,14 @@ base-chart.chart {
     background-color: #fff; }
 
 .sidebar {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  padding: 0;
-  color: #fff;
-  background: #29363d; }
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 0;
+    color: #fff;
+    background: #1b3543;
+}
   .sidebar .sidebar-close {
     position: absolute;
     right: 0;
@@ -10595,8 +10605,9 @@ base-chart.chart {
       .sidebar .nav-link.active i, .sidebar .navbar .active.dropdown-toggle i, .navbar .sidebar .active.dropdown-toggle i {
         color: #20a8d8; }
     .sidebar .nav-link:hover, .sidebar .navbar .dropdown-toggle:hover, .navbar .sidebar .dropdown-toggle:hover {
-      color: #fff;
-      background: #20a8d8; }
+        color: #fff;
+        background: #223d80;
+    }
       .sidebar .nav-link:hover i, .sidebar .navbar .dropdown-toggle:hover i, .navbar .sidebar .dropdown-toggle:hover i {
         color: #fff; }
       .sidebar .nav-link:hover.nav-dropdown-toggle::before, .sidebar .navbar .dropdown-toggle:hover.nav-dropdown-toggle::before, .navbar .sidebar .dropdown-toggle:hover.nav-dropdown-toggle::before {
@@ -12382,9 +12393,10 @@ app-root {
     .app-header.navbar .navbar-toggler {
       color: #536c79; }
     .app-header.navbar .navbar-brand {
-      position: absolute;
-      left: 50%;
-      margin-left: -77.5px; }
+        position: absolute;
+        left: 50%;
+        margin-left: -77.5px;
+    }
   .app-body {
     margin-top: 55px; }
   .breadcrumb-fixed .main:nth-child(2) .breadcrumb {

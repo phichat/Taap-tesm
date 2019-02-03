@@ -30,50 +30,50 @@
             animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
         }
 
-        .sk-spinner-cube-grid .sk-cube:nth-child(1) {
-            -webkit-animation-delay: 0.2s;
-            animation-delay: 0.2s;
-        }
+            .sk-spinner-cube-grid .sk-cube:nth-child(1) {
+                -webkit-animation-delay: 0.2s;
+                animation-delay: 0.2s;
+            }
 
-        .sk-spinner-cube-grid .sk-cube:nth-child(2) {
-            -webkit-animation-delay: 0.3s;
-            animation-delay: 0.3s;
-        }
+            .sk-spinner-cube-grid .sk-cube:nth-child(2) {
+                -webkit-animation-delay: 0.3s;
+                animation-delay: 0.3s;
+            }
 
-        .sk-spinner-cube-grid .sk-cube:nth-child(3) {
-            -webkit-animation-delay: 0.4s;
-            animation-delay: 0.4s;
-        }
+            .sk-spinner-cube-grid .sk-cube:nth-child(3) {
+                -webkit-animation-delay: 0.4s;
+                animation-delay: 0.4s;
+            }
 
-        .sk-spinner-cube-grid .sk-cube:nth-child(4) {
-            -webkit-animation-delay: 0.1s;
-            animation-delay: 0.1s;
-        }
+            .sk-spinner-cube-grid .sk-cube:nth-child(4) {
+                -webkit-animation-delay: 0.1s;
+                animation-delay: 0.1s;
+            }
 
-        .sk-spinner-cube-grid .sk-cube:nth-child(5) {
-            -webkit-animation-delay: 0.2s;
-            animation-delay: 0.2s;
-        }
+            .sk-spinner-cube-grid .sk-cube:nth-child(5) {
+                -webkit-animation-delay: 0.2s;
+                animation-delay: 0.2s;
+            }
 
-        .sk-spinner-cube-grid .sk-cube:nth-child(6) {
-            -webkit-animation-delay: 0.3s;
-            animation-delay: 0.3s;
-        }
+            .sk-spinner-cube-grid .sk-cube:nth-child(6) {
+                -webkit-animation-delay: 0.3s;
+                animation-delay: 0.3s;
+            }
 
-        .sk-spinner-cube-grid .sk-cube:nth-child(7) {
-            -webkit-animation-delay: 0s;
-            animation-delay: 0s;
-        }
+            .sk-spinner-cube-grid .sk-cube:nth-child(7) {
+                -webkit-animation-delay: 0s;
+                animation-delay: 0s;
+            }
 
-        .sk-spinner-cube-grid .sk-cube:nth-child(8) {
-            -webkit-animation-delay: 0.1s;
-            animation-delay: 0.1s;
-        }
+            .sk-spinner-cube-grid .sk-cube:nth-child(8) {
+                -webkit-animation-delay: 0.1s;
+                animation-delay: 0.1s;
+            }
 
-        .sk-spinner-cube-grid .sk-cube:nth-child(9) {
-            -webkit-animation-delay: 0.2s;
-            animation-delay: 0.2s;
-        }
+            .sk-spinner-cube-grid .sk-cube:nth-child(9) {
+                -webkit-animation-delay: 0.2s;
+                animation-delay: 0.2s;
+            }
 
         @@-webkit-keyframes sk-cubeGridScaleDelay {
             0%, 70%, 100% {
@@ -98,7 +98,6 @@
                 transform: scale3D(0, 0, 1);
             }
         }
-
     </style>
 
     <environment include="Development">
@@ -153,11 +152,13 @@
     </div>
     <header class="app-header navbar">
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
-            <span class="navbar-toggler-icon"></span>
+            @*<span class="navbar-toggler-icon"></span>*@
+            <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
         </button>
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action=""></a>
         <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
-            <span class="navbar-toggler-icon"></span>
+            @*<span class="navbar-toggler-icon"></span>*@
+            <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
         </button>
         <ul class="nav navbar-nav d-md-down-none">
             <li class="nav-item px-3">
@@ -200,24 +201,51 @@
         <div class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav">
-                    <li class="nav-title">APIC System</li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="PartReceives" data-form="parts-receive" asp-action="">
-                            <i class="icon-social-dropbox "></i>
-                            Part Receive
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#" title="Inventory control system">
+                            <i class="icon-docs"></i> Inventory Control
                         </a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="PartReceives" data-form="parts-receive" asp-action="">
+                                    <i class="icon-social-dropbox "></i>
+                                    Part Receive
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Transfers" data-form="transfer" asp-action="">
+                                    <i class="icon-share-alt"></i>
+                                    Transfer
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="ReceiveReferences" data-form="buy-off" asp-action="">
+                                    <i class="icon-paper-plane"></i>
+                                    Buy off
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Transfers" data-form="transfer" asp-action="">
-                            <i class="icon-share-alt"></i>
-                            Transfer
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="ReceiveReferences" data-form="buy-off" asp-action="">
-                            <i class="icon-paper-plane"></i>
-                            Buy off
-                        </a>
+
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-docs"></i> WMS Online</a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="WmsImpCpl" data-form="wms-imp-cpl" asp-action="">
+                                    <i class="icon-doc"></i> Import CPL
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="WmsImpFpl" data-form="wms-imp-fpl" asp-action="">
+                                    <i class="icon-doc"></i> Import FPL
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="WmsImpRec" data-form="wms-imp-rec" asp-action="">
+                                    <i class="icon-doc"></i> Import Receipt
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="nav-item nav-dropdown">
@@ -307,7 +335,7 @@
         <!-- Main content -->
         <main class="main">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active">AIPC System</li>
+                <li class="breadcrumb-item active"></li>
             </ol>
 
             <div class="container-fluid">
