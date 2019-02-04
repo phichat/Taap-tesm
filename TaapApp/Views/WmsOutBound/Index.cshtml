@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewData["Title"] = "WmsOutBound";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('table').DataTable({
+                "scrollX": true,
+                searching: false
+            });
+        });
+    </script>
+}
+
+<div class="card-group">
+    <div class="card card-accent-primary col-md-8 col-sm-12 pr-0 pl-0">
+        <div class="card-header">
+            <div class="callout callout-info mt-0 mb-0">
+                <strong class="h5">
+                    <i class="icon-doc"></i>
+                </strong>
+                <div class="title">Out Bound</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form action="" id="frm-movment">
+                <div class="row">
+                    <label class="col-md-2 col-sm-12 col-form-label" for="">Client :</label>
+                    <div class="col-md-4 col-sm-12 form-group">
+                        <input type="text" readonly class="form-control form-control-sm" />
+                    </div>
+                    <label class="col-md-2 col-sm-12 col-form-label" for="">Movement Date :</label>
+                    <div class="col-md-4 col-sm-12 form-group">
+                        <input type="date" readonly class="form-control form-control-sm" />
+                    </div>
+                    <label class="col-md-2 col-sm-12 col-form-label" for="">Status :</label>
+                    <div class="col-md-4 col-sm-12 form-group">
+                        <input type="text" readonly class="form-control form-control-sm" />
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2 col-sm-12 col-form-label" for="">Reference No :</label>
+                    <div class="col-md-4 col-sm-12 form-group">
+                        <input type="text" class="form-control form-control-sm" />
+                    </div>
+                    <label class="col-md-2 col-sm-12 col-form-label" for="">Remark :</label>
+                    <div class="col-md-4 col-sm-12 form-group">
+                        <input type="text" class="form-control form-control-sm" />
+                    </div>
+                    <label class="col-md-2 col-sm-12 col-form-label" for="">Reson :</label>
+                    <div class="col-md-4 col-sm-12 form-group">
+                        <select class="form-control form-control-sm">
+                            <option selected disabled></option>
+                            <option>Change Location</option>
+                            <option>Bin in</option>
+                            <option>Bin in Inspected</option>
+                            <option>Inspection</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr class="mt-0">
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-4 col-sm-12"></div>
+                    <div class="col-lg-3 col-md-4 col-sm-12">
+                        <button type="button" class="btn btn-primary btn-sm form-control">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            New Movement
+                        </button>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12">
+                        <button type="button" class="btn btn-warning btn-sm form-control">
+                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                            Confirm Movement
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="card card-accent-primary col-md-4 col-sm-12 pr-0 pl-0">
+        <div class="card-header">
+            <div class="callout callout-info mt-0 mb-0">
+                <strong class="h5">
+                    <i class="icon-magnifier"></i>
+                </strong>
+                <div class="title">Search data</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form id="search" method="get" asp-action="Search">
+                <div class="row">
+                    <label class="col-lg-4 col-md-5 col-sm-12 col-form-label" for="">Movement No. :</label>
+                    <div class="col-lg-8 col-md-7 col-sm-12 form-group">
+                        <select id="" name="receiveNo" class="form-control form-control-sm" placeholder=" Movement No." required>
+                            @*
+                                <option disabled="" selected></option>
+                                @foreach (var item in ViewBag.SelectOptionReceiveNo)
+                                {
+                                <option value=@item.Value>@item.Text</option>
+                                }*@
+                        </select>
+                        <span for="receiveNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12"></div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                        <button id="btn-search" type="button" class="btn btn-info btn-sm form-control"
+                                onclick="search('#search')"
+                                data-permission="viewer">
+                            <i class="icon-magnifier"></i>
+                            Search
+                        </button>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 form-group">
+                        <button class="btn btn-danger btn-sm form-control" type="reset">
+                            <i class="icon-refresh"></i>
+                            Resert
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="card card-accent-primary col-sm-12 pr-0 pl-0">
+    <div class="card-body">
+        <div class="row form-group">
+            <div class="col-lg-10 col-md-8 col-sm-12"></div>
+            <div class="col-lg-2 col-md-4 col-sm-12">
+                <button type="button" class="btn btn-success btn-sm form-control">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    Add Detail
+                </button>
+            </div>
+        </div>
+
+        <table class="stripe hover display nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>RECEIPT_NO</th>
+                    <th>CONTAINER_NO</th>
+                    <th>PALLET_NO</th>
+                    <th>SET_NO</th>
+                    <th>LOCATION_FROM</th>
+                    <th>LOCATION_TO</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+

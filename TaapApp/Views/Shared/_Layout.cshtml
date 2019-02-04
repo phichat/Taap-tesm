@@ -245,11 +245,21 @@
                                     <i class="icon-doc"></i> Import Receipt
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="WmsTFMove" data-form="wms-tf-move" asp-action="">
+                                    <i class="icon-doc"></i> Transfer Movement
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="WmsOutBound" data-form="wms-out-bound" asp-action="">
+                                    <i class="icon-doc"></i> Out Bound
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
                     <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-docs"></i> Report</a>
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-docs"></i> Inventory Report</a>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="ReportPartsReceive" data-form="rpt-parts-receive" asp-action="">
@@ -278,6 +288,33 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-docs"></i> WMS Report</a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="ReportWmsPartReceipt" data-form="rpt-wms-part-receipt" asp-action="">
+                                    <i class="icon-doc"></i> Parts Receipt
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="ReportWmsPartMovement" data-form="rpt-wms-part-movement" asp-action="">
+                                    <i class="icon-doc"></i> Parts Movement
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="ReportWmsStockAvailable" data-form="rpt-wms-stock-available" asp-action="">
+                                    <i class="icon-doc"></i> Stock available
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="ReportWmsMovement" data-form="rpt-wms-movement" asp-action="">
+                                    <i class="icon-doc"></i> Movement Report
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-title">User & Roles</li>
                     <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-controller="Roles" asp-action="" data-form="roles">

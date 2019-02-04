@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts {
+    <script>
+
+        var baseReport = $('#baseReport').attr('href');
+        function exportPDF(frm) {
+
+            var obj = $(frm).serializeObject();
+
+            if (obj.partNo == '') {
+                $(frm).find('[required]').focus();
+                return false;
+            }
+
+            var valid = $(frm).validate();
+            valid.element('#dateFrom')
+            valid.element('#dateTo')
+
+            if (valid.element('#dateFrom') && valid.element('#dateTo')) {
+                var reportName = 'ReportName=WmsMovement';
+                var query = $(frm).serialize();
+                var reportType = 'ReportType=pdf';
+                var param = reportName + '&' + query;
+                window.open(baseReport + '/Reports/Reports.aspx?' + param);
+            }
+        }
+
+    </script>
+}
+<meta name="form" content="@ViewBag.MetaForm" />
+
+<form id="search">
+    <div class="row">
+        <label class="col-md-2 col-form-label" for="dateFrom">Date From :</label>
+        <div class="col-md-3 form-group">
+            <input id="dateFrom" type="date" name="dateFrom" class="form-control form-control-sm" required />
+            <span for="dateFrom" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-md-2 col-sm-3 col-form-label" for="dateTo">Date To :</label>
+        <div class="col-md-3 form-group">
+            <input id="dateTo" type="date" name="dateTo" class="form-control form-control-sm" required />
+            <span for="dateTo" class="text-danger"></span>
+        </div>
+        <div class="col-md-2 form-group">
+            <button type="button" class="btn btn-danger btn-sm form-control"
+                    onclick="exportPDF('#search')"
+                    data-permission="printer">
+                <i class="fa fa-file-pdf-o"></i>
+                Pdf
+            </button>
+        </div>
+    </div>
+</form>
